@@ -21,7 +21,6 @@
                     <el-form-item label="课程视频">
                         <el-upload
                             class="upload-demo"
-                            
                             action="https://jsonplaceholder.typicode.com/posts/"
                             :on-preview="handlePreview"
                             :on-remove="handleRemove"
@@ -45,13 +44,16 @@
                         </el-select>
                     </el-form-item>
                     <el-form-item label="发布范围">
-                        <el-tree
-                            :props="props"
-                            :load="loadNode"
-                            lazy
-                            show-checkbox
-                            @check-change="handleCheckChange">
-                        </el-tree>
+                        <el-checkbox :indeterminate="isIndeterminate1" v-model="checkAll1" @change="handleCheckAllChange1">全选</el-checkbox>
+                        <el-checkbox-group v-model="checkedLevels" @change="handleCheckedLevelsChange">
+                          <el-checkbox v-for="level in levels" :label="level" :key="level">{{level}}</el-checkbox>
+                        </el-checkbox-group>
+                    </el-form-item>
+                    <el-form-item label="发布对象">
+                        <el-checkbox :indeterminate="isIndeterminate2" v-model="checkAll2" @change="handleCheckAllChange2">全选</el-checkbox>
+                        <el-checkbox-group v-model="checkedObjects" @change="handleCheckedObjectsChange">
+                          <el-checkbox v-for="obj in objects" :label="obj" :key="obj">{{obj}}</el-checkbox>
+                        </el-checkbox-group>
                     </el-form-item>
                 </el-form>
             </div>
@@ -69,6 +71,8 @@
 <script>
 import Header from '../../components/header.vue'
 import CurrentLocation from '../../components/currentLocation.vue'
+const options1 = ['省级', '市级', '县级', '乡级', '村级'];
+const options2 = ['总河湖长', '河湖长', '河湖长办', '联系单位', '巡查员']
 export default {
     name: 'addClasses',
     components: {
@@ -99,7 +103,16 @@ export default {
           label: 'name',
           children: 'zones'
         },
-        count: 1
+        count1: 1,
+        checkAll1: false,
+        checkedLevels: [],
+        levels: options1,
+        isIndeterminate1: true,
+        count2: 1,
+        checkAll2: false,
+        checkedObjects: [],
+        objects: options2,
+        isIndeterminate2: true
       }
     },
     methods: {
@@ -118,53 +131,29 @@ export default {
       beforeRemove(file, fileList) {
         return this.$confirm(`确定移除 ${ file.name, fileList }？`);
       },
-      handleCheckChange(data, checked, indeterminate) {
-        console.log(data, checked, indeterminate);
+      // handleCheckChange(data, checked, indeterminate) {
+      //   console.log(data, checked, indeterminate);
+      // },
+      // handleNodeClick(data) {
+      //   console.log(data);
+      // },
+       handleCheckAllChange1(val) {
+        this.checkedLevels = val ? this.levels : [];
+        this.isIndeterminate1 = false;
       },
-      handleNodeClick(data) {
-        console.log(data);
+      handleCheckAllChange2(val) {
+        this.checkedObjects = val ? this.objects : [];
+        this.isIndeterminate2 = false;
       },
-      loadNode(node, resolve) {
-        if (node.level === 0) {
-          return resolve([{ name: '省级' }, { name: '市级' }, { name: '县级' }, { name: '乡级' }, { name: '村级' }]);
-        }
-        if (node.level > 3) return resolve([]);
-
-        var hasChild;
-        if (node.data.name === '省级') {
-          hasChild = true;
-        } else if (node.data.name === '市级') {
-          hasChild = true;
-        } else if (node.data.name === '县级') {
-          hasChild = true;
-        } else if (node.data.name === '乡级') {
-          hasChild = true;
-        } else if (node.data.name === '村级') {
-          hasChild = true;
-        }else {
-          hasChild = Math.random() > 0.5;
-        }
-
-        setTimeout(() => {
-          var data;
-          if (hasChild) {
-            data = [{
-              name: '联系单位'
-            }, {
-              name: '责任单位'
-            },{
-              name: '河湖长办'
-            }, {
-              name: '河湖长办'
-            }, {
-              name: '巡查员'
-            }];
-          } else {
-            data = [];
-          }
-
-          resolve(data);
-        }, 500);
+      handleCheckedLevelsChange(value) {
+        let checkedCount = value.length;
+        this.checkAll1 = checkedCount === this.levels.length;
+        this.isIndeterminate1 = checkedCount > 0 && checkedCount < this.levels.length;
+      },
+      handleCheckedObjectsChange(value) {
+        let checkedCount = value.length;
+        this.checkAll2 = checkedCount === this.objects.length;
+        this.isIndeterminate2 = checkedCount > 0 && checkedCount < this.objects.length;
       }
     }
 }

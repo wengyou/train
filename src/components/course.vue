@@ -4,14 +4,18 @@
         <h5>河湖“清四乱”的必学并用之策</h5>
         <div class="wrapper">
             <span>29分钟</span>
-            <p>必修课</p>
+            <p>学习人数：2136</p>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    methods: {
+        toClassDetail() {
+          this.$router.push({path: '/'})
+        }
+    }
 }
 </script>
 
@@ -45,9 +49,7 @@ export default {
                 width: 50px;
                 height: 20px;
                 line-height: 20px;
-                text-align: center;
-                color: #ffffff;
-                background: #ff9c14;
+                color: red;
                 font-size: 6px;
             }
             p{

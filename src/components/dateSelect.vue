@@ -18,14 +18,25 @@
             <el-button type="primary" round size="mini" style="color: #ffffff">搜索</el-button>
         </div>
         <div class="date_wrapper">
-            <el-button type="primary" round size="mini" style="height: 25px; line-height: 10px; margin-right: 20px">+新增</el-button>
+            <el-button 
+                type="primary" 
+                round size="mini" 
+                style="height: 25px; line-height: 10px; margin-right: 20px"
+                @click="toAddClass"
+            >
+                +新增
+            </el-button>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    methods: {
+        toAddClass() {
+          this.$router.push({path: '/addClasses'})
+        }
+    }
 }
 </script>
 

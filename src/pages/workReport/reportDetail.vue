@@ -1,0 +1,61 @@
+<template>
+    <div class="reportDetail_container">
+        <header>上报任务详情</header>
+        <div class="info">任务信息</div>
+        <div class="wrapper">
+            <div>
+                <span>任务名称：</span>
+                <span>河长巡河月报</span>
+            </div>
+            <div>
+                <span>上报要求：</span>
+                <span>上报要求详情上报要求详情上报要求详情上报要求详情上报要求详情上报要求详情上报要求详情上报要求详情上报要求详情</span>
+            </div>
+            <div style="display: flex">
+                <span>附件：</span>
+                    <el-button icon="el-icon-download">漳河水库水利风景区.doc</el-button>
+                    <el-button icon="el-icon-download">漳河水库水利风景区.doc</el-button>
+            </div>
+            <div>
+                <span>截止日期：</span>
+                <span>2020-09-06</span>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style lang="scss" scope>
+    .reportDetail_container{
+        header{
+            width: 100%;
+            height: 70px;
+            background-image: linear-gradient(to right, #0890f2 , #1b49d6);
+            text-align: center;
+            line-height: 70px;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .info{
+            width: 98%;
+            height: 40px;
+            background: #e2f3ff;
+            margin: 10px auto;
+            line-height: 40px;
+            text-indent: 1em;
+        }
+        .wrapper{
+            width: 60%;
+            margin: 10px auto;
+            div{
+                margin-bottom: 20px;
+            }
+        }
+    }
+</style>

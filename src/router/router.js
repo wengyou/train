@@ -4,31 +4,43 @@ export default [{
     path: '/',
     component: App,
     children: [{
-        path: '/',
-        component: r => require.ensure([], () => r(require('../pages/classes/classDetail.vue')), 'classDetail')
+        path: '/classDetail',
+        component: r => require.ensure([], () => r(require('../pages/onlineTrain/classDetail.vue')), 'classDetail')
     }, {
         path: '/startStudy',
-        component: r => require.ensure([], () => r(require('../pages/study/startStudy.vue')), 'startStudy')
+        component: r => require.ensure([], () => r(require('../pages/onlineTrain/startStudy.vue')), 'startStudy')
     }, {
-        path: '/classCenter',
-        component: r => require.ensure([], () => r(require('../pages/classes/classCenter.vue')), 'classCenter')
+        path: '/',
+        component: r => require.ensure([], () => r(require('../pages/onlineTrain/classCenter.vue')), 'classCenter')
     }, {
         path: '/examRoom',
-        component: r => require.ensure([], () => r(require('../pages/rooms/examRoom.vue')), 'examRoom')
+        component: r => require.ensure([], () => r(require('../pages/onlineTrain/examRoom.vue')), 'examRoom')
     }, {
         path: '/myClasses',
-        component: r => require.ensure([], () => r(require('../pages/classes/myClasses.vue')), 'myClasses')
+        component: r => require.ensure([], () => r(require('../pages/onlineTrain/myClasses.vue')), 'myClasses')
     }, {
         path: '/addClasses',
-        component: r => require.ensure([], () => r(require('../pages/classes/addClass.vue')), 'addClasses')
+        component: r => require.ensure([], () => r(require('../pages/onlineTrain/addClass.vue')), 'addClasses')
     }, {
         path: '/questionBank',
-        component: r => require.ensure([], () => r(require('../pages/tests/questionBank.vue')), 'questionBank')
+        component: r => require.ensure([], () => r(require('../pages/onlineTrain/questionBank.vue')), 'questionBank')
     }, {
         path: '/testManage',
-        component: r => require.ensure([], () => r(require('../pages/tests/testManage.vue')), 'testManage')
+        component: r => require.ensure([], () => r(require('../pages/onlineTrain/testManage.vue')), 'testManage')
     }, {
         path: '/route',
         component: r => require.ensure([], () => r(require('../pages/route.vue')), 'route')
+    }, {
+        path: '/missionInit',
+        component: r => require.ensure([], () => r(require('../pages/workReport/missionInit.vue')), 'missionInit')
+    },{
+        path: '/launchDetail',
+        component: r => require.ensure([], () => r(require('../pages/workReport/launchDetail.vue')), 'launchDetail')
+    }, {
+        path: '/infoFill',
+        component: r => require.ensure([], () => r(require('../pages/workReport/infoFill.vue')), 'infoFill')
+    },{
+        path: '/reportDetail',
+        component: r => require.ensure([], () => r(require('../pages/workReport/reportDetail.vue')), 'reportDetail')
     }]
 }]

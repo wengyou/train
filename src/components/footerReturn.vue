@@ -4,7 +4,7 @@
             size="mini"
             @click="toStartStudy"
         >
-            返回
+            关闭
         </el-button>
     </div>
 </template>
@@ -13,7 +13,7 @@
 export default {
     methods: {
       toStartStudy() {
-          this.$router.push({path: '/startStudy'})
+          this.$router.go(-1)
       }
     }
 }

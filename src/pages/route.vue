@@ -18,10 +18,10 @@ export default {
           this.$router.push({path: '/startStudy'})
       },
       toClassDetail() {
-          this.$router.push({path: '/'})
+          this.$router.push({path: '/classDetail'})
       },
       toClassCenter() {
-          this.$router.push({path: '/classCenter'})
+          this.$router.push({path: '/'})
       },
       toClassManage() {
           this.$router.push({path: '/testManage'})

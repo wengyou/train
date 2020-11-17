@@ -22,12 +22,12 @@
             </div>
             <div>
                 <el-button type="primary" size="mini" @click="toAddClass">新增</el-button>
-                <el-button type="primary" size="mini">学习设置</el-button>
+                <el-button type="primary" size="mini" @click="toLearnSettings">学习设置</el-button>
             </div>
         </div>
         <div class="classes_list">
             <div @click="toClassDetail" v-for="course in courses" :key="course">
-                <Course  />
+                <Course :msg="true" />
             </div>
         </div>
         <div class="footer">
@@ -61,13 +61,13 @@ export default {
             courses: [1,2,3,4,5,6,7,8,9,10],
             options: [{
                 value: '选项1',
-                label: '黄金糕'
+                label: '全部'
                 }, {
                 value: '选项2',
-                label: '双皮奶'
+                label: '选修课'
                 }, {
                 value: '选项3',
-                label: '蚵仔煎'
+                label: '必修课'
                 }],
                 value: '',
                 input2: '',
@@ -79,6 +79,9 @@ export default {
         },
         toAddClass() {
             this.$router.push({path: '/addClasses'})
+        },
+        toLearnSettings() {
+            this.$router.push({path: '/learnSettings'})
         }
     }
 }

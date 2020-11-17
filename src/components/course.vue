@@ -1,10 +1,13 @@
 <template>
     <div class="course_container">
-        <img src="../images/classCenter/u35.png" alt="">
+        <img v-if="msg" src="../images/classCenter/u35.png" alt=""> 
+        <img v-if="!msg" src="../images/myClass/learned.png" alt="">
+        <!-- <img src="../images/classCenter/u35.png" alt=""> -->
         <h5>河湖“清四乱”的必学并用之策</h5>
         <div class="wrapper">
             <span>29分钟</span>
-            <p>学习人数：2136</p>
+            <p v-if="msg">学习人数：2136</p>
+            <p v-if="!msg">学习时长：23分钟</p>
         </div>
     </div>
 </template>
@@ -15,7 +18,8 @@ export default {
         toClassDetail() {
           this.$router.push({path: '/'})
         }
-    }
+    },
+    props: ['msg']
 }
 </script>
 

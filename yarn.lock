@@ -5696,7 +5696,7 @@ mux.js@4.3.2:
   resolved "https://registry.npm.taobao.org/mux.js/download/mux.js-4.3.2.tgz#576d537df037dc5ec35ec1316b948d815d35c210"
   integrity sha1-V21TffA33F7DXsExa5SNgV01whA=
 
-mux.js@5.6.7:
+mux.js@5.6.7, mux.js@^5.6.7:
   version "5.6.7"
   resolved "https://registry.npm.taobao.org/mux.js/download/mux.js-5.6.7.tgz#d39fc85cded5a1257de9f6eeb5cf1578c4a63eb8"
   integrity sha1-05/IXN7VoSV96fbutc8VeMSmPrg=

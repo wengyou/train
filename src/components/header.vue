@@ -1,15 +1,13 @@
 <template>
     <div class="header_container">
         <ul class="wrapper">
-            <li>实时监测</li>
-            <li>实时监测</li>
+            <li>信息门户</li>
             <li>河湖动态</li>
-            <li>河长履职</li>
-            <li>事件处理</li>
-            <li>事件督导</li>
-            <li>年度考核</li>
-            <li>智慧办公</li>
             <li>信息填报</li>
+            <li>智慧办公</li>
+            <li>河湖巡查</li>
+            <li>事件处理</li>
+            <li>考核管理</li>
             <li>系统管理</li>
         </ul>
         <div class="user" @click="toRoute">超级管理员</div>
@@ -39,11 +37,12 @@ export default {
             width: 50%; 
             height: 100%;
             display: flex;
-            font-size: 10px;
+            font-size: 14px;
             justify-content: space-around;
             margin-left: 460px;
             line-height: 50px;
-            color: #909cc4;
+            color: #ffffff;
+            font-weight: bold;
         }
         .user{
             line-height: 50px;

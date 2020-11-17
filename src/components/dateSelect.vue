@@ -15,17 +15,17 @@
                     type="date">
                 </el-date-picker>
             </div>
-            <el-button type="primary" round size="mini" style="color: #ffffff">搜索</el-button>
+            <el-button type="primary" round size="mini" style="color: #ffffff">查询</el-button>
         </div>
         <div class="date_wrapper">
-            <el-button 
+            <!-- <el-button 
                 type="primary" 
                 round size="mini" 
                 style="height: 25px; line-height: 10px; margin-right: 20px"
                 @click="toAddClass"
             >
                 +新增
-            </el-button>
+            </el-button> -->
         </div>
     </div>
 </template>

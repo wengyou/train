@@ -61,8 +61,8 @@
         </div>
         <div class="footer">
             <div>
-                <el-button size="mini" type="primary">提交</el-button>
-                <el-button size="mini">取消</el-button>
+                <el-button size="mini" type="primary" @click="toClassCenter">提交</el-button>
+                <el-button size="mini" @click="toClassCenter">取消</el-button>
             </div>
         </div>
     </div>
@@ -154,7 +154,10 @@ export default {
         let checkedCount = value.length;
         this.checkAll2 = checkedCount === this.objects.length;
         this.isIndeterminate2 = checkedCount > 0 && checkedCount < this.objects.length;
-      }
+      },
+      toClassCenter() {
+          this.$router.go(-1)
+        },
     }
 }
 </script>

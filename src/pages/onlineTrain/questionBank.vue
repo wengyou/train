@@ -3,81 +3,138 @@
         <Header />
         <current-location></current-location>
         <div class="header">
-            <p style="margin-left: 20px; font-size: 14px">题库：</p>
-            <el-radio-group v-model="radio">
-                <el-radio :label="3">全部</el-radio>
-                <el-radio :label="6">一般事件</el-radio>
-                <el-radio :label="9">一般事件</el-radio>
-            </el-radio-group>
-            <p style="margin-left: 30px; font-size: 14px">题目分离：</p>
-            <el-select size="mini" v-model="value">
+            <el-select v-model="value1" placeholder="全部" size="mini" style="margin-left: 30px">
                 <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
+                v-for="item in options1"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
                 </el-option>
             </el-select>
-            <p style="margin-left: 30px; font-size: 14px">正确率：</p>
-            <el-input size="mini" style="width: 60px" v-model="input"></el-input>
-            ~
-            <el-input size="mini" style="width: 60px" v-model="input" placeholder="100"></el-input>
-            <div class="manage">统计考核管理</div>
+            <el-select v-model="value2" placeholder="请选择" size="mini" style="margin-left: 20px">
+                <el-option
+                v-for="item in options2"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+                </el-option>
+            </el-select>
+            <el-input
+                placeholder="请输入内容"
+                prefix-icon="el-icon-search"
+                style="margin-left: 20px; width: 200px"
+                size="mini"
+                v-model="input2">
+            </el-input>
+            <el-button 
+                type="primary" 
+                size="mini"
+                @click="dialogVisible = true" 
+                style="width: 70px; margin-left: 20px">
+                新增
+            </el-button>
         </div>
-        <div class="header header_spe">
-            <div class="item">
-                <p style="margin-left: 20px; font-size: 14px">题目名称：</p> 
-                <el-input size="mini" style="width: 160px" v-model="input"></el-input>
-                <p style="margin-left: 20px; font-size: 14px">入口年份：</p> 
-                <el-input size="mini" style="width: 160px" v-model="input"></el-input>
-                <el-button style="margin-left: 20px" type="primary" size="mini">查询</el-button>
-            </div>
-            <div class="item item2">
-                <el-button style="margin-left: 20px" type="primary" size="mini">+新增</el-button>
-                <el-button style="margin-left: 20px" type="primary" size="mini">导入</el-button>
-                <el-button style="margin-left: 20px" type="primary" size="mini">分类管理</el-button>
-            </div>
-        </div>
+        <!-- 弹框 -->
+        <el-dialog
+            title="提示"
+            :visible.sync="dialogVisible"
+            width="50%"
+            :before-close="handleClose">
+            <el-form ref="form" :model="form" label-width="80px">
+                <el-form-item label="试题内容">
+                    <el-input v-model="form.content"></el-input>
+                </el-form-item>
+                <el-form-item label="所属部门">
+                    <el-select v-model="form.department" placeholder="请选择">
+                        <el-option label="区域一" value="shanghai"></el-option>
+                        <el-option label="区域二" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="试题类型">
+                    <el-select v-model="value" placeholder="请选择">
+                        <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="题型">
+                    <el-select v-model="value" placeholder="请选择">
+                        <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="选项">
+                    <div>
+                        <el-button size="small">+</el-button>
+                        <el-button size="small">-</el-button>
+                    </div>
+                    <div>
+                        <el-radio-group v-model="radio">
+                            <el-radio :label="3" style="margin-top: 10px">A  <el-input size="mini" v-model="input" placeholder="请输入内容"></el-input></el-radio><br> 
+                            <el-radio :label="6" style="margin-top: 10px">B  <el-input size="mini" v-model="input" placeholder="请输入内容"></el-input> </el-radio>
+                        </el-radio-group>
+                    </div>
+                </el-form-item>
+                <el-form-item label="试题解析">
+                    <el-input v-model="form.content"></el-input>
+                </el-form-item>
+                <!-- <el-form-item>
+                    <el-button type="primary" @click="onSubmit">保存</el-button>
+                </el-form-item> -->
+            </el-form>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogVisible = false">取 消</el-button>
+                <el-button type="primary" @click="dialogVisible = false">保 存</el-button>
+            </span>
+        </el-dialog>
         <div style="width: 96%; margin: 0 auto">
             <el-table
+                border
                 size="mini"
                 :data="tableData"
                 stripe
                 style="width: 100%">
                 <el-table-column
                     prop="num"
-                    label="序号"
-                    width="60">
+                    label="序号">
                 </el-table-column>
                 <el-table-column
                     prop="title"
                     label="试题标题"
-                    width="680">
+                    width="200px">
                 </el-table-column>
                 <el-table-column
                     prop="type"
-                    label="题目分类"
-                    width="100">
+                    label="试卷类型">
                 </el-table-column>
                 <el-table-column
                     prop="count"
                     label="答题次数">
                 </el-table-column>
                 <el-table-column
-                    prop="right"
+                    prop="rightNum"
+                    label="正确数">
+                </el-table-column>
+                <el-table-column
+                    prop="rightPer"
                     label="正确率">
                 </el-table-column>
                 <el-table-column
-                    prop="error"
-                    label="错误率">
-                </el-table-column>
-                <el-table-column
-                    prop="typer"
+                    prop="testType"
                     label="题型">
                 </el-table-column>
                 <el-table-column
-                    prop="opera"
-                    label="操作">
+                    label="操作"
+                    width="200">
+                    <el-button type="text" icon="el-icon-edit" size="mini">编辑</el-button>
+                    <el-button type="text" icon="el-icon-delete" size="mini">删除</el-button>
                 </el-table-column>
             </el-table>
         </div>
@@ -106,44 +163,96 @@ export default {
         CurrentLocation,
     },
     data() {
-      return {
-        options: [{
-          value: '选项1',
-          label: '黄金糕'
-        }, {
-          value: '选项2',
-          label: '双皮奶'
-        }],
-        value: '',
-        radio: 3,
-        tableData: [{
-            num: '1',
-            title: '依据《企业安全生产标准化基本规范》操作岗位人员转岗，离岗，以上重新上岗者应进行车间，班组安全性教育培训。',
-            type: '水利安全综合',
-            count: '85',
-            right: '85',
-            error: '0',
-            typer: '单选题',
-            opera: ''
-        }, {
-          num: '1',
-            title: '依据《企业安全生产标准化基本规范》操作岗位人员转岗，离岗，以上重新上岗者应进行车间，班组安全性教育培训。',
-            type: '水利安全综合',
-            count: '85',
-            right: '85',
-            error: '0',
-            typer: '单选题',
-            opera: ''
-        }, {
-          num: '1',
-            title: '依据《企业安全生产标准化基本规范》操作岗位人员转岗，离岗，以上重新上岗者应进行车间，班组安全性教育培训。',
-            type: '水利安全综合',
-            count: '85',
-            right: '85',
-            error: '0',
-            typer: '单选题',
-            opera: ''
-        }]
+        return {
+            tableData: [{
+                num: '1',
+                title: '中共中央办公厅、国务院办公厅印发《关于全面推行河长制的意见》的时间？',
+                type: '水利安全综合',
+                count: '85',
+                rightNum: '16',
+                rightPer: '18.8%',
+                testType: '单选题', 
+            },{
+                num: '2',
+                title: '要在全国（）全面推行河长制',
+                type: '水利安全综合',
+                count: '85',
+                rightNum: '16',
+                rightPer: '18.8%',
+                testType: '单选题', 
+            },{
+                num: '3',
+                title: '河长制办公室承担河长制组织实施具体工作，落实（）确定的事项',
+                type: '水利安全综合',
+                count: '85',
+                rightNum: '16',
+                rightPer: '18.8%',
+                testType: '单选题', 
+            },{
+                num: '4',
+                title: '习近平总书记做出重要指示，强调（）是“五位一体”总体布局和“四个全面”战略布局的重要内容',
+                type: '水利安全综合',
+                count: '85',
+                rightNum: '16',
+                rightPer: '18.8%',
+                testType: '单选题', 
+            },{
+                num: '5',
+                title: '全面推行河长制要通过主要媒体向社会公告（）名单',
+                type: '水利安全综合',
+                count: '85',
+                rightNum: '16',
+                rightPer: '18.8%',
+                testType: '单选题', 
+            },{
+                num: '6',
+                title: '习近平总书记做出重要指示，强调（）是“五位一体”总体布局和“四个全面”战略布局的重要内容',
+                type: '水利安全综合',
+                count: '85',
+                rightNum: '16',
+                rightPer: '18.8%',
+                testType: '单选题', 
+            },{
+                num: '7',
+                title: '全面推行河长制要通过主要媒体向社会公告（）名单',
+                type: '水利安全综合',
+                count: '85',
+                rightNum: '16',
+                rightPer: '18.8%',
+                testType: '单选题', 
+            }],
+            options1: [{
+                value: '选项1',
+                label: '单选'
+                }, {
+                value: '选项2',
+                label: '多选'
+                }, {
+                value: '选项3',
+                label: '判断'
+                }, {
+                value: '选项4',
+                label: '全部'
+                }],
+            value1: '',
+            options2: [],
+            value2: '',
+            input2: '',
+            dialogVisible: false,
+            form: {
+                content: ''
+            },
+            radio: 2,
+        }
+    },
+    methods: {
+      handleClose(done) {
+        this.$confirm('确认关闭？')
+          .then(_ => {
+            done();
+            console.log(_)
+          })
+          .catch(_ => {console.log(_)});
       }
     }
 }
@@ -157,26 +266,6 @@ export default {
             height: 50px;
             align-items: center;
             border-bottom: 1px solid #dddddd;
-            .manage{
-                width: 100px;
-                height: 30px;
-                border: 1px solid #1a7ff1;
-                border-radius: 10px;
-                color: #1a7ff1;
-                margin-left: 20px;
-                font-size: 14px;
-                text-align: center;
-                line-height: 26px;
-            }
-            .item{
-                display: flex;
-            }
-        }
-        .header_spe{
-            justify-content: space-between;
-            .item2{
-                margin-right: 20px;
-            }
         }
         .footer{
             width: 100%;

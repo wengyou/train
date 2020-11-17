@@ -2,7 +2,17 @@
     <div class="missionInit_container">
         <Header />
         <current-location></current-location>
-        <el-button type="primary" size='mini' class="btn"  @click="centerDialogVisible = true">+工作上报任务发起</el-button>
+        <div class="flex">
+          <el-input
+            placeholder="关键字搜索"
+            size="mini"
+            style="width: 200px; margin: auto 0"
+            v-model="input4">
+            <!-- <i slot="prefix" class="el-input__icon el-icon-search"></i> -->
+          </el-input>
+          <date-select></date-select>
+          <el-button type="primary" size='mini' class="btn"  @click="centerDialogVisible = true">+新建任务  </el-button>
+        </div>
         <!-- 表格 -->
         <el-table
             :data="tableData"
@@ -104,11 +114,13 @@
 <script>
 import Header from '../../components/header.vue'
 import CurrentLocation from '../../components/currentLocation.vue'
+import DateSelect from '../../components/dateSelect.vue'
 export default {
     name: 'missionInit',
     components: {
         Header,
         CurrentLocation,
+        DateSelect
     },
     data() {
       return {
@@ -156,7 +168,8 @@ export default {
             { required: true, message: '请上传附件', trigger: 'change' }
           ]
         },
-        fileList: []
+        fileList: [],
+        input4: ''
       }
     },
     methods: {

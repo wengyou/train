@@ -2,7 +2,7 @@
     <div class="examRoom_container">
         <Header />
         <current-location></current-location>
-        <date-select></date-select>
+        <!-- <date-select></date-select> -->
         <el-table
             :data="tableData"
             border
@@ -37,13 +37,13 @@
 <script>
 import Header from '../../components/header.vue'
 import CurrentLocation from '../../components/currentLocation.vue'
-import DateSelect from '../../components/dateSelect.vue'
+// import DateSelect from '../../components/dateSelect.vue'
 export default {
     name: 'examRoom',
     components: {
         Header,
         CurrentLocation,
-        DateSelect
+        // DateSelect   
     },
     data() {
         return {

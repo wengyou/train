@@ -19,6 +19,7 @@
                         <i class="el-icon-star-on" style="color: #ffb55e; font-size: 20px"></i>
                         <i class="el-icon-star-on" style="color: #ffb55e; font-size: 20px"></i>
                     </li>
+                    <el-button @click="toStartStudy" type="primary" size="small" style="margin-top: 10px">开始学习</el-button>
                 </ul>
             </div>
             <div class="wrapper">
@@ -95,7 +96,7 @@
                 </div>
             </div>
         </div>
-        <FooterReturn />
+        <!-- <FooterReturn /> -->
     </div>
 </template>
 
@@ -103,14 +104,14 @@
 import Header from '../../components/header.vue'
 import CurrentLocation from '../../components/currentLocation.vue'
 import Evaluate from '../../components/evaluate.vue'
-import FooterReturn from '../../components/footerReturn.vue'
+// import FooterReturn from '../../components/footerReturn.vue'
 export default {
     name: 'classCenter',
     components: {
         Header,
         CurrentLocation,
         Evaluate,
-        FooterReturn
+        // FooterReturn
     },
     data() {
       return {
@@ -121,6 +122,9 @@ export default {
     methods: {
       handleClick(tab, event) {
         console.log(tab, event);
+      },
+      toStartStudy() {
+          this.$router.push({path: '/startStudy'})
       }
     }
 }
@@ -148,7 +152,7 @@ export default {
                     margin: auto 0;
                     margin-left: 30px;
                     li{
-                        margin-top: 16px;
+                        margin-top: 10px;
                     }
                     h4{
                         font-weight: bold;

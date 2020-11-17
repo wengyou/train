@@ -16,15 +16,15 @@
         <el-tabs v-model="activeName" @tab-click="handleClick" style="width: 96%; margin: 10px auto">
             <el-tab-pane label="全部(12)" name="first" class="classes_list">
                 <div v-for="item in all" :key="item" style="margin: 10px 0 0 10px">
-                    <Course />
+                    <Course :msg='false' />
                 </div>
             </el-tab-pane>
             <el-tab-pane label="未学习(1)" name="second" class="classes_list">
-                 <Course />
+                 <Course :msg="false"/>
             </el-tab-pane>
             <el-tab-pane label="已学习(10)" name="third" class="classes_list">
                 <div v-for="item in started" :key="item" style="margin: 10px 0 0 10px">
-                    <Course />
+                    <Course :msg="false" />
                 </div>
             </el-tab-pane>
         </el-tabs>

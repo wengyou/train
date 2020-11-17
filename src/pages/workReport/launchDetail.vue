@@ -57,9 +57,25 @@
                 prop="opera"
                 label="操作">
                 <el-button icon="el-icon-download" type="text" size="small">下载</el-button>
-                <el-button icon="el-icon-back" type="text" size="small">返回</el-button>
+                <el-button icon="el-icon-back" type="text" size="small" @click="dialogVisible = true">退回</el-button>
             </el-table-column>
         </el-table>
+        <el-dialog
+          title="请写退回原因"
+          :visible.sync="dialogVisible"
+          width="30%"
+          :before-close="handleClose">
+          <el-input
+            type="textarea"
+            :rows="2"
+            placeholder="请输入内容"
+            v-model="textarea">
+          </el-input>
+          <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">否</el-button>
+            <el-button type="primary" @click="dialogVisible = false">是</el-button>
+          </span>
+        </el-dialog>
     </div>
 </template>
 
@@ -117,7 +133,19 @@ export default {
           date: '2020-12-28',
           submittedDate: '2019-12-19',
           status: '已提交',
-        },],
+        }],
+        dialogVisible: false,
+        textarea: ''
+      }
+    },
+    methods: {
+      handleClose(done) {
+        this.$confirm('确认关闭？')
+          .then(_ => {
+            done();
+            console.log(_)
+          })
+          .catch(_ => {console.log(_)});
       }
     }
 }

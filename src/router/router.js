@@ -22,11 +22,23 @@ export default [{
         path: '/addClasses',
         component: r => require.ensure([], () => r(require('../pages/onlineTrain/addClass.vue')), 'addClasses')
     }, {
+        path: '/learnSettings',
+        component: r => require.ensure([], () => r(require('../pages/onlineTrain/learnSettings.vue')), 'learnSettings')
+    }, {
         path: '/questionBank',
         component: r => require.ensure([], () => r(require('../pages/onlineTrain/questionBank.vue')), 'questionBank')
     }, {
         path: '/testManage',
         component: r => require.ensure([], () => r(require('../pages/onlineTrain/testManage.vue')), 'testManage')
+    }, {
+        path: '/preview',
+        component: r => require.ensure([], () => r(require('../pages/onlineTrain/preview.vue')), 'preview')
+    },{
+        path: '/testDetail',
+        component: r => require.ensure([], () => r(require('../pages/onlineTrain/testDetail.vue')), 'testDetail')
+    },{
+        path: '/myTest',
+        component: r => require.ensure([], () => r(require('../pages/onlineTrain/myTest.vue')), 'myTest')
     }, {
         path: '/route',
         component: r => require.ensure([], () => r(require('../pages/route.vue')), 'route')

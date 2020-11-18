@@ -19,6 +19,12 @@
             <el-button type="primary" @click="toMyTest">我的考试</el-button>
         </div>
 
+        <div class="flex">
+            <el-button type="primary" @click="toMissionInit">任务发起</el-button>
+            <el-button type="primary" @click="toLaunchDetail">查看详情</el-button>
+            <el-button type="primary" @click="toInfoFill">信息填报</el-button>
+            <el-button type="primary" @click="toReportDetail">查看详情</el-button>
+        </div>
         
         
         <!-- <el-button type="primary" @click="toExamRoom">我的考场</el-button> -->
@@ -28,6 +34,18 @@
 <script>
 export default {
     methods: {
+        toMissionInit() {
+          this.$router.push({path: '/missionInit'})
+      },
+      toLaunchDetail() {
+          this.$router.push({path: '/launchDetail'})
+      },
+      toInfoFill() {
+          this.$router.push({path: '/infoFill'})
+      },
+      toReportDetail() {
+          this.$router.push({path: '/reportDetail'})
+      },
       toStartStudy() {
           this.$router.push({path: '/startStudy'})
       },

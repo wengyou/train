@@ -66,3 +66,24 @@ body{
     width: 96%;
     margin: 10px auto;
 }
+.toLeft{
+    margin-left: 20px;
+}
+.toRight{
+    margin-right: 20px;
+}
+.toTop{
+    margin-top: 20px
+}
+.table_wrapper{
+    width: 98vw;
+    margin: 10px auto;
+}
+.flex1{
+    display: flex;
+    justify-content: space-between;
+}
+.flex2{
+    display: flex;
+    align-items: center;
+}

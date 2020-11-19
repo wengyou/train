@@ -8,8 +8,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 import './style/common.scss'
 import Video from 'video.js'
 import 'video.js/dist/video-js.css'
+import echarts from 'echarts'
 
 Vue.prototype.$video = Video
+Vue.prototype.$echarts = echarts
 
 Vue.config.productionTip = false
 

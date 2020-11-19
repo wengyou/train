@@ -26,7 +26,25 @@
             <el-button type="primary" @click="toReportDetail">查看详情</el-button>
         </div>
         
-        
+        <div class="flex">
+            <el-button type="primary" @click="toWaterProtect">水资源保护</el-button>
+            <el-button type="primary" @click="toWaterShore">水域岸线管护</el-button>
+            <el-button type="primary" @click="toCure">水污染防治</el-button>
+            <el-button type="primary" @click="toRepair">水生态修复与保护</el-button>
+            <el-button type="primary" @click="toGoverment">水环境治理</el-button>
+            <el-button type="primary" @click="toProtect">河流保护名录</el-button>
+            <el-button type="primary" @click="toMonitor">河湖执法监控</el-button>
+            <el-button type="primary" @click="toResponsibility">河湖责任主体护</el-button>
+            <el-button type="primary" @click="toManage">河湖管理和保护规划</el-button>
+        </div>
+
+        <div class="flex">
+            <el-button type="primary" @click="toBook">会议台账</el-button>
+            <el-button type="primary" @click="toDraft">草稿箱</el-button>
+            <el-button type="primary" @click="toAdd">新增会议</el-button>
+            <el-button type="primary" @click="toDetail">舆论详情</el-button>
+            <el-button type="primary" @click="toPublic">舆论宣传</el-button>
+        </div>
         <!-- <el-button type="primary" @click="toExamRoom">我的考场</el-button> -->
     </div>
 </template>
@@ -34,6 +52,48 @@
 <script>
 export default {
     methods: {
+        toPublic() {
+            this.$router.push({path: '/meeting/public'})
+        },
+        toDetail() {
+            this.$router.push({path: '/meeting/detail'})
+        },
+        toAdd() {
+             this.$router.push({path: '/meeting/add'})
+        },
+        toDraft() {
+            this.$router.push({path: '/meeting/draft'})
+        },
+        toBook() {
+            this.$router.push({path: '/meeting/book'})
+        },
+        toManage() {
+            this.$router.push({path: '/nineTopics/manage'})
+        },
+        toResponsibility() {
+            this.$router.push({path: '/nineTopics/responsibility'})
+        },
+        toMonitor() {
+            this.$router.push({path: '/nineTopics/monitor'})
+        },
+        toProtect() {
+            this.$router.push({path: '/nineTopics/protect'})
+        },
+        toGoverment() {
+            this.$router.push({path: '/nineTopics/goverment'})
+        },
+        toRepair() {
+            this.$router.push({path: '/nineTopics/repair'})
+        },
+        toCure() {
+            this.$router.push({path: '/nineTopics/cure'})
+        },
+        toWaterShore() {
+            this.$router.push({path: '/nineTopics/waterShore'})
+        },
+        toWaterProtect() {
+            this.$router.push({path: '/nineTopics/waterProtect'})
+        },
         toMissionInit() {
           this.$router.push({path: '/missionInit'})
       },

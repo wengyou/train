@@ -11,7 +11,7 @@
                 :value="item.value">
                 </el-option>
             </el-select>
-            <el-select v-model="value2" placeholder="请选择" size="mini" style="margin-left: 20px">
+            <el-select v-model="value2" placeholder="请选择试卷类型" size="mini" style="margin-left: 20px">
                 <el-option
                 v-for="item in options2"
                 :key="item.value"
@@ -29,20 +29,20 @@
             <el-button 
                 type="primary" 
                 size="mini"
-                @click="dialogVisible = true" 
+                @click="changeTitle1();dialogVisible = true" 
                 style="width: 70px; margin-left: 20px">
                 新增
             </el-button>
         </div>
         <!-- 弹框 -->
         <el-dialog
-            title="提示"
+            :title="title"
             :visible.sync="dialogVisible"
             width="50%"
             :before-close="handleClose">
-            <el-form ref="form" :model="form" label-width="80px">
-                <el-form-item label="试题内容">
-                    <el-input v-model="form.content"></el-input>
+            <el-form :rules="rules" ref="form" :model="form" label-width="80px">
+                <el-form-item label="试题内容" prop="con">
+                    <Editor />
                 </el-form-item>
                 <el-form-item label="所属部门">
                     <el-select v-model="form.department" placeholder="请选择">
@@ -70,7 +70,7 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="选项">
+                <el-form-item label="选项" prop="select">
                     <div>
                         <el-button size="small">+</el-button>
                         <el-button size="small">-</el-button>
@@ -83,7 +83,7 @@
                     </div>
                 </el-form-item>
                 <el-form-item label="试题解析">
-                    <el-input v-model="form.content"></el-input>
+                    <Editor />
                 </el-form-item>
                 <!-- <el-form-item>
                     <el-button type="primary" @click="onSubmit">保存</el-button>
@@ -103,37 +103,48 @@
                 style="width: 100%">
                 <el-table-column
                     prop="num"
+                    width="80"
                     label="序号">
                 </el-table-column>
                 <el-table-column
                     prop="title"
-                    label="试题标题"
-                    width="200px">
+                    label="试题标题">
                 </el-table-column>
                 <el-table-column
                     prop="type"
+                    width="100"
                     label="试卷类型">
                 </el-table-column>
                 <el-table-column
                     prop="count"
+                    width="80"
                     label="答题次数">
                 </el-table-column>
                 <el-table-column
                     prop="rightNum"
+                    width="80"
                     label="正确数">
                 </el-table-column>
                 <el-table-column
                     prop="rightPer"
+                    width="80"
                     label="正确率">
                 </el-table-column>
                 <el-table-column
                     prop="testType"
+                    width="80"
                     label="题型">
                 </el-table-column>
                 <el-table-column
                     label="操作"
                     width="200">
-                    <el-button type="text" icon="el-icon-edit" size="mini">编辑</el-button>
+                    <el-button 
+                        type="text" 
+                        icon="el-icon-edit" 
+                        size="mini" 
+                        @click="changeTitle2();dialogVisible = true">
+                        编辑
+                    </el-button>
                     <el-button type="text" icon="el-icon-delete" size="mini">删除</el-button>
                 </el-table-column>
             </el-table>
@@ -156,14 +167,21 @@
 <script>
 import Header from '../../components/header.vue'
 import CurrentLocation from '../../components/currentLocation.vue'
+import Editor from '../../components/wangEditor.vue'
 export default {
     name: 'questionBank',
     components: {
         Header,
         CurrentLocation,
+        Editor
     },
     data() {
         return {
+            title: '',
+             rules: {
+                con: [{ required: true, message: '请输入活动名称', trigger: 'blur' }],
+                select: [{ required: true, message: '请输入活动名称', trigger: 'blur' }],
+            },
             tableData: [{
                 num: '1',
                 title: '中共中央办公厅、国务院办公厅印发《关于全面推行河长制的意见》的时间？',
@@ -235,7 +253,25 @@ export default {
                 label: '全部'
                 }],
             value1: '',
-            options2: [],
+            options2:[{
+                value: '选项1',
+                label: '河湖基础'
+                }, {
+                value: '选项2',
+                label: '科普知识'
+                }, {
+                value: '选项3',
+                label: '河湖长制相关'
+                }, {
+                value: '选项4',
+                label: '生态文明建设'
+                }, {
+                value: '选项5',
+                label: '幸福河湖'
+            },{
+                value: '选项5',
+                label: '其他'
+            }],
             value2: '',
             input2: '',
             dialogVisible: false,
@@ -253,6 +289,12 @@ export default {
             console.log(_)
           })
           .catch(_ => {console.log(_)});
+      },
+      changeTitle1() {
+          this.title = '新增试题'
+      },
+      changeTitle2() {
+          this.title = '编辑题目'
       }
     }
 }

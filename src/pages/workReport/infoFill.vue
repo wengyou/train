@@ -44,6 +44,17 @@
                 </el-table>
             </el-tab-pane>
             <el-tab-pane label="全部任务" name="second">
+                <div class="flex wrapper">
+                    <el-input
+                        placeholder="关键字搜索"
+                        size="mini"
+                        style="width: 200px; margin: auto 0"
+                        v-model="input4">
+                        <!-- <i slot="prefix" class="el-input__icon el-icon-search"></i> -->
+                    </el-input>
+                    <date-select></date-select>
+                    <el-button type="primary" size='mini' class="btn"  @click="centerDialogVisible = true">+新建任务</el-button>
+                </div>
                 <el-table
                     :data="allTableData"
                     border
@@ -112,11 +123,13 @@
 <script>
 import Header from '../../components/header.vue'
 import CurrentLocation from '../../components/currentLocation.vue'
+import DateSelect from '../../components/dateSelect.vue'
 export default {
     name: 'missionInit',
     components: {
         Header,
         CurrentLocation,
+        DateSelect
     },
     data() {
       return {
@@ -207,6 +220,9 @@ export default {
         }
         .el-tabs__active-bar{
             width: 110px !important;
+        }
+        .wrapper{
+          align-items: center;
         }
     }
 </style>

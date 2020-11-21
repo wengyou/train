@@ -17,7 +17,7 @@
                 <div>
                     <Text1 :text="text2"></Text1>
                 </div>
-                <Table3 />
+                <Table3 style="margin-bottom: 40px" />
             </div>
         </div>
     </div>
@@ -73,11 +73,10 @@ export default {
             display: flex;
             justify-content: space-between;
             .wrapper{
-                margin-right: 20px;
-                // width: 50vw;
+                margin-right: 4vw;
+                width: 40vw;
                 display: flex;
                 flex-direction: column;
-                // align-items: flex-end;
                 .item1{
                     display: flex;
                     margin-top: 10px;

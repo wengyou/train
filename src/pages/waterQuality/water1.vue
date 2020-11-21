@@ -4,7 +4,7 @@
         <div class="flex2 wrapper">
             <Search />
             <Time />
-            <Select />
+            <Select :initCon="con" />
         </div>
         <div class="table_wrapper">
             <Table1 />
@@ -30,7 +30,8 @@ export default {
     },
     data() {
         return{
-            headCon: 'X年X月水质水量月报编辑'
+            headCon: 'X年X月水质水量月报编辑',
+            con: '请输入河流名称'
         }
     }
 }

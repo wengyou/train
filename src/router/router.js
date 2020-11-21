@@ -97,6 +97,12 @@ export default [{
         path: '/meeting/public',
         component: r => require.ensure([], () => r(require('../pages/meeting/public.vue')), 'public')
     }, {
+        path: '/meeting/publicBook',
+        component: r => require.ensure([], () => r(require('../pages/meeting/publicBook.vue')), 'publicBook')
+    }, {
+        path: '/meeting/publicDraft',
+        component: r => require.ensure([], () => r(require('../pages/meeting/publicDraft.vue')), 'publicDraft')
+    }, {
         path: '/waterQuality/water1',
         component: r => require.ensure([], () => r(require('../pages/waterQuality/water1.vue')), 'water1')
     }, {
@@ -129,5 +135,23 @@ export default [{
     }, {
         path: '/waterQuality/water11',
         component: r => require.ensure([], () => r(require('../pages/waterQuality/water11.vue')), 'water11')
+    }, {
+        path: '/waterQuality/siteInfo1',
+        component: r => require.ensure([], () => r(require('../pages/waterQuality/siteInfo1.vue')), 'siteInfo1')
+    }, {
+        path: '/waterQuality/siteInfo2',
+        component: r => require.ensure([], () => r(require('../pages/waterQuality/siteInfo2.vue')), 'siteInfo2')
+    }, {
+        path: '/waterQuality/siteInfo3',
+        component: r => require.ensure([], () => r(require('../pages/waterQuality/siteInfo3.vue')), 'siteInfo3')
+    }, {
+        path: '/waterQuality/siteInfo4',
+        component: r => require.ensure([], () => r(require('../pages/waterQuality/siteInfo4.vue')), 'siteInfo4')
+    }, {
+        path: '/waterQuality/siteInfo5',
+        component: r => require.ensure([], () => r(require('../pages/waterQuality/siteInfo5.vue')), 'siteInfo5')
+    }, {
+        path: '/waterQuality/siteInfo6',
+        component: r => require.ensure([], () => r(require('../pages/waterQuality/siteInfo6.vue')), 'siteInfo6')
     }]
 }]

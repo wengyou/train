@@ -2,7 +2,7 @@
   <el-table
     :data="tableData"
     size="mini"
-    style="width: 450px;"
+    style="width: 40vw;"
     border>
     <el-table-column
       prop="num1"
@@ -62,13 +62,7 @@ export default {
             num3: '',
             num4: '',
             num5: ''
-        }, {
-            num1: 6,
-            num2: '',
-            num3: '',
-            num4: '',
-            num5: ''
-        },]
+        }]
       }
     }
 }

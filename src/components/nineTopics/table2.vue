@@ -2,7 +2,7 @@
   <el-table
     :data="tableData"
     size="mini"
-    style="width: 450px;"
+    style="width: 40vw"
     border>
     <el-table-column
       prop="num1"

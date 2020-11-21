@@ -91,17 +91,19 @@ export default {
 
 <style lang="scss" scoped>
     .responsibility_container{
-        width: 100vw;
-        height: 100vh;
+        min-width: 100vw;
+        min-height: 100vh;
         background: url('../../images/nineBg.jpg') no-repeat;
         background-size: 100% 100%;
         .container{
             display: flex;
              .wrapper{
+                //  background: red;
+                 width: 40vw;
                 display: flex;
                 .con{
-                    width: 210px;
-                    height: 250px;
+                    width: 14vw;
+                    height: 60vh;
                     display: flex;
                     // background: red;
                     flex-direction: column;

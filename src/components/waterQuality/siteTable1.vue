@@ -1,0 +1,199 @@
+<template>
+    <el-table
+    :data="tableData"
+    border
+    style="width: 100%">
+    <el-table-column
+      prop="num"
+      label="序号"
+      width="100">
+    </el-table-column>
+    <el-table-column
+      prop="title1"
+      label="测站编码"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title2"
+      label="测站名称"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title3"
+      label="测站类别"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title4"
+      label="测站等级"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title5"
+      label="测站经度"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title6"
+      label="测站类别"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title7"
+      label="测站纬度"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title8"
+      label="水域类型"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title9"
+      label="所属河流"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title10"
+      label="测站所属行政区划"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title11"
+      label="所属水资源分区"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title12"
+      label="管理单位"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title13"
+      label="监测单位"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title14"
+      label="监测频次(次/年)"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title415"
+      label="运行状况"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title16"
+      label="站址"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title17"
+      label="是否关联水功能区"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title18"
+      label="水功能区名称"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title19"
+      label="是否属于18条省级河流水质监测站"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title20"
+      label="考核市州（17个市州）"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title21"
+      label="市级河湖长"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title22"
+      label="市级河湖长职务"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title23"
+      label="市级河湖长联系部门"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title24"
+      label="备注"
+      width="150">
+    </el-table-column>
+  </el-table>
+</template>
+
+<script>
+export default {
+    props: ['name'],
+    data() {
+        return {
+            tableData: [{
+                num: 1,
+                title1:'',
+                title2:'',
+                title3:'',
+                title4:'',
+                title5:'',
+                title6: '',
+                title7:'',
+                title8:'',
+                title9:'',
+                title10:'',
+                title11:'',
+                title12:'',
+                title13:'',
+                title14:'',
+                title15:'',
+                title16:'',
+                title17:'',
+                title18:'',
+                title19:'',
+                title20:'',
+                title21:'',
+                title22:'',
+                title23:'',
+                title24:'',
+            },{
+                num: 2,
+                title1:'',
+                title2:'',
+                title3:'',
+                title4:'',
+                title5:'',
+                title6: '',
+                title7:'',
+                title8:'',
+                title9:'',
+                title10:'',
+                title11:'',
+                title12:'',
+                title13:'',
+                title14:'',
+                title15:'',
+                title16:'',
+                title17:'',
+                title18:'',
+                title19:'',
+                title20:'',
+                title21:'',
+                title22:'',
+                title23:'',
+                title24:'',
+            },]
+        }
+    }
+}
+</script>
+
+<style>
+
+</style>

@@ -1,6 +1,6 @@
 <template>
     <el-input
-        placeholder="请输入河流名称搜索"
+        :placeholder="initCon"
         class="toLft"
         size="mini"
         prefix-icon="el-icon-search"
@@ -11,6 +11,7 @@
 
 <script>
 export default {
+    props: ['initCon'],
     data() {
         return {
             input: ''

@@ -13,8 +13,8 @@ export default {
 
 <style lang="scss" scoped>
     .block2_container{
-        min-width: 140px;
-        min-height: 70px;
+        min-width: 8vw;
+        min-height: 8vh;
         box-shadow: inset 0 0 20px #0b7bc4;
         background-color: #04175b;
         border-radius: 5px;
@@ -22,7 +22,7 @@ export default {
             color: #02ccff;
             font-size: 24px;
             text-align: center;
-            line-height: 40px;
+            line-height: 5vh;
             font-weight: bold;
         }
         p{

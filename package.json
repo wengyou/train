@@ -18,10 +18,12 @@
     "sass-loader": "^10.1.0",
     "video.js": "^7.10.2",
     "vue": "^2.6.11",
+    "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.4.9",
     "vue-video": "^0.1.7",
     "vue-video-player": "^5.0.2",
-    "vuex": "^3.5.1"
+    "vuex": "^3.5.1",
+    "wangeditor": "^4.4.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

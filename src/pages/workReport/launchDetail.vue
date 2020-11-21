@@ -1,10 +1,11 @@
 <template>
     <div class="taskDetail_container">
         <header>任务发起详情</header>
+        <el-button icon="el-icon-back" type="primary" size="mini" @click="toBack()" style="margin: 20px 0 0 20px">返回</el-button>
         <div class="wrapper">
             <div>
                 <span>上报单位：</span>
-                <el-select v-model="value1" placeholder="请选择">
+                <el-select v-model="value1" size="mini" placeholder="请选择">
                     <el-option
                     v-for="item in options1"
                     :key="item.value"
@@ -13,7 +14,7 @@
                     </el-option>
                 </el-select>
                 <span style="margin-left: 20px">状态：</span>
-                <el-select v-model="value2" placeholder="请选择">
+                <el-select size="mini" v-model="value2" placeholder="请选择">
                     <el-option
                     v-for="item in options2"
                     :key="item.value"
@@ -27,10 +28,12 @@
         <!-- 表格 -->
         <el-table
             :data="tableData"
+            size="mini"
             border
             style="width: 98%;margin: 0 auto;">
             <el-table-column
                 prop="num"
+                width="80"
                 label="序号">
             </el-table-column>
             <el-table-column
@@ -56,8 +59,12 @@
             <el-table-column
                 prop="opera"
                 label="操作">
-                <el-button icon="el-icon-download" type="text" size="small">下载</el-button>
-                <el-button icon="el-icon-back" type="text" size="small" @click="dialogVisible = true">退回</el-button>
+                <template slot-scope="scope">
+                    <el-button v-if="scope.row.status === '未提交'" style="color: #dddddd" icon="el-icon-download" type="text" size="small">下载</el-button>
+                    <el-button v-if="scope.row.status === '已提交'" icon="el-icon-download" type="text" size="small">下载</el-button>
+                    <el-button v-if="scope.row.status === '未提交'" style="color: #dddddd" icon="el-icon-back" type="text" size="small" @click="dialogVisible = true">退回</el-button>
+                    <el-button v-if="scope.row.status === '已提交'" icon="el-icon-back" type="text" size="small" @click="dialogVisible = true">退回</el-button>
+                </template>
             </el-table-column>
         </el-table>
         <el-dialog
@@ -85,24 +92,24 @@ export default {
       return {
         options1: [{
           value: '选项1',
-          label: '黄金糕'
+          label: '武汉市河长办'
         }, {
           value: '选项2',
-          label: '双皮奶'
+          label: '宜昌市河长办'
         }, {
           value: '选项3',
-          label: '蚵仔煎'
+          label: '襄阳市河长办'
+        },{
+          value: '选项4',
+          label: '天门市河长办'
         }],
         value1: '',
         options2: [{
           value: '选项1',
-          label: '黄金糕'
+          label: '已提交'
         }, {
           value: '选项2',
-          label: '双皮奶'
-        }, {
-          value: '选项3',
-          label: '蚵仔煎'
+          label: '未提交'
         }],
         value2: '',
         tableData: [{
@@ -146,6 +153,9 @@ export default {
             console.log(_)
           })
           .catch(_ => {console.log(_)});
+      },
+      toBack() {
+        this.$router.go(-1)
       }
     }
 }

@@ -3,7 +3,7 @@
   <el-table
     :data="tableData"
     size="mini"
-    style="width: 450px;"
+    style="width: 38vw;"
     border>
     <el-table-column
       prop="num1"
@@ -20,7 +20,7 @@
     </el-table-column>
     <el-table-column
       prop="num2"
-      label="三季度%）">
+      label="三季度">
     </el-table-column>
     <el-table-column
       prop="num3"

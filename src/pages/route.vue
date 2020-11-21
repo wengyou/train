@@ -44,6 +44,8 @@
             <el-button type="primary" @click="toAdd">新增会议</el-button>
             <el-button type="primary" @click="toDetail">舆论详情</el-button>
             <el-button type="primary" @click="toPublic">舆论宣传</el-button>
+            <el-button type="primary" @click="toPublicBook">宣传资料台账</el-button>
+            <el-button type="primary" @click="toPublicDraft">舆论-草稿箱</el-button>
         </div>
         <!-- <el-button type="primary" @click="toExamRoom">我的考场</el-button> -->
     </div>
@@ -52,6 +54,12 @@
 <script>
 export default {
     methods: {
+        toPublicDraft() {
+            this.$router.push({path: '/meeting/publicDraft'})
+        },
+        toPublicBook() {
+            this.$router.push({path: '/meeting/publicBook'})
+        },
         toPublic() {
             this.$router.push({path: '/meeting/public'})
         },

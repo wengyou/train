@@ -24,13 +24,20 @@
                 <span>截止日期：</span>
                 <span>2020-09-06</span>
             </div>
+            <div style="width: 60vw; display: flex;justify-content: center; ">
+                <el-button icon="el-icon-back" type="primary" size="mini" @click="toBack()" style="margin: 0 auto">返回</el-button>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    methods: {
+        toBack() {
+            this.$router.go(-1)
+        }
+    }
 }
 </script>
 
@@ -55,7 +62,7 @@ export default {
             text-indent: 1em;
         }
         .wrapper{
-            width: 60%;
+            width: 60vw;
             margin: 10px auto;
             div{
                 margin-bottom: 20px;

@@ -13,13 +13,13 @@
                   <Text2 :text="text4" />
                   <Text2 :text="text4" />
               </div>
-              <div class="item2">
+              <div class="item1">
                   <Text1 :text="text1" />
               </div>
               <div class="item1">
                   <Text2 :text="text3" />
               </div>
-              <div class="item2">
+              <div class="item1">
                   <Text1 :text="text1" />
               </div>
               <div class="item1">
@@ -30,7 +30,7 @@
                   <Text1 :text="text2" />
                   <year-select></year-select>
               </div>
-              <Table5 style="margin-top: 10px" />
+              <Table5 style="margin-top: 2vh; margin-bottom: 40px" />
           </div>
       </div>
   </div>
@@ -80,19 +80,19 @@ export default {
             display: flex;
             justify-content: space-between;
             .wrapper{
-                width: 36vw;
+                // background: red;
+                width: 38vw;
+                // min-height: 80vh;
                 display: flex;
                 flex-direction: column;
                 margin-top: 20px;
-                margin-right: 20px;
+                margin-right: 4vw;
                 justify-content: space-between;
                 .item1{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                }
-                .item2{
-                    margin: 0 auto;
+                    margin-top: 2vh;
                 }
             }
         }

@@ -26,6 +26,7 @@
                 border>
                 <el-table-column
                 prop="num"
+                width="80"
                 label="序号">
                 </el-table-column>
                 <el-table-column
@@ -33,11 +34,13 @@
                 label="试题内容">
                 </el-table-column>
                 <el-table-column
-                prop="questiontype"
+                prop="questionType"
+                width="100"
                 label="题型">
                 </el-table-column>
                 <el-table-column
                 prop="type"
+                width="120"
                 label="题目分类">
                 </el-table-column>
                 <el-table-column
@@ -127,14 +130,14 @@ export default {
             }],
             dialogTableData:[{
                 num: 1,
-                content: '',
-                questionType: '',
-                type: ''
+                content: '中共中央办公厅、国务院办公厅印发《关于全面推行河长制的意见》的时间？',
+                questionType: '选择题',
+                type: '河湖长制相关'
             },{
                 num: 2,
-                content: '',
-                questionType: '',
-                type: ''
+                content: '河长制办公室承担河长制组织实施具体工作，落实（）确定的事项',
+                questionType: '选择题',
+                type: '河湖长制相关'
             }],
             options: [{
                 value: '选项1',

@@ -9,6 +9,10 @@ import './style/common.scss'
 import Video from 'video.js'
 import 'video.js/dist/video-js.css'
 import echarts from 'echarts'
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
 
 Vue.prototype.$video = Video
 Vue.prototype.$echarts = echarts
@@ -17,6 +21,7 @@ Vue.config.productionTip = false
 
 Vue.use(VueRouter);
 Vue.use(ElementUI);
+Vue.use(VueQuillEditor)
 
 const router = new VueRouter({
 	routes

@@ -21,11 +21,20 @@
       fixed="right"
       label="操作"
       width="600">
-        <el-button icon="el-icon-edit" type="text" size="mini">录入月报终稿</el-button>
-        <el-button icon="el-icon-search" type="text" size="mini">查看月报终稿</el-button>
-        <el-button icon="el-icon-download" type="text" size="mini">下载月报初稿</el-button>
-        <el-button icon="el-icon-download" type="text" size="mini">下载月报终稿</el-button>
-        <el-button icon="el-icon-delete" type="text" size="mini">删除月报终稿</el-button>
+        <template slot-scope="scope">
+            <div v-if="scope.row.status === '初稿'">
+                <el-button icon="el-icon-edit" type="text" size="mini" @click="toWater10">录入月报终稿</el-button>
+                <el-button icon="el-icon-search" type="text" size="mini" @click="toWater11">查看月报初稿</el-button>
+                <el-button icon="el-icon-download" type="text" size="mini">下载月报初稿</el-button>
+            </div>
+            <div v-if="scope.row.status === '已发布'">
+                <el-button icon="el-icon-search" type="text" size="mini" @click="toWater11">查看月报终稿</el-button>
+                <el-button icon="el-icon-search" type="text" size="mini">查看月报初稿</el-button>
+                <el-button icon="el-icon-download" type="text" size="mini">下载月报初稿</el-button>
+                <el-button icon="el-icon-download" type="text" size="mini">下载月报终稿</el-button>
+                <el-button icon="el-icon-delete" type="text" size="mini">删除月报终稿</el-button>
+            </div>
+        </template>
     </el-table-column>
     </el-table>
 </template>
@@ -75,6 +84,14 @@ export default {
             name: '2020年7月长江水质水量月报',
             status: '已发布'
           },]
+        }
+      },
+      methods: {
+        toWater10() {
+          this.$router.push({path: '/waterQuality/water10'})
+        },
+        toWater11() {
+          this.$router.push({path: '/waterQuality/water11'})
         }
       }
 }

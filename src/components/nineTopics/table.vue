@@ -3,11 +3,12 @@
         <el-table
             :data="tableData"
             size="small"
-            style="width: 580px;"
+            style="width: 40vw;"
             :row-class-name="tableRowClassName"
             border>
             <el-table-column
             prop="num"
+            width="80"
             label="序号">
             </el-table-column>
 

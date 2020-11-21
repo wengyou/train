@@ -2,8 +2,10 @@
   <div class="goverment_container">
       <Header />
       <div class="btn_wrapper">
-          <block1 :msg="msg1" :flag="false"></block1>
-          <block1 :msg="msg2" :flag="true"></block1>
+          <!-- <block1 :msg="msg1" :flag="false"></block1>
+          <block1 :msg="msg2" :flag="true"></block1> -->
+          <el-button type="primary" :style=" flag1 ? 'background: #0135ad' : ''" size="mini" @click="swichFlag1()">污水处理情况</el-button>
+          <el-button type="primary" :style=" flag2 ? 'background: #0135ad' : ''" size="mini" @click="swichFlag2()">水产养殖污染防治</el-button>
       </div>
       <div class="container">
           <map-charts></map-charts>
@@ -12,27 +14,27 @@
                   <Text1 :text="text1" />
                   <year-select></year-select>
               </div>
-              <div class="item1">
+              <div class="item2">
                   <Text2 :text="text3" />
-                  <Text2 :text="text4" />
+                  <Text2 style="margin-left: 4vw" :text="text4" />
               </div>
-              <div class="item1">
+              <div class="item2">
                   <Text2 :text="text5" />
-                  <Text2 :text="text6" />
+                  <Text2 style="margin-left: 4vw" :text="text6" />
               </div>
-              <div class="item1">
-                  <el-progress type="circle" :percentage="40" width="100" color="#19dbb6"></el-progress>
-                  <el-progress type="circle" :percentage="30" width="100" color="#f27f59"></el-progress>
+              <div class="item2">
+                  <img src="../../images/cure1.png" alt="">
+                  <img style="margin-left: 4vw" src="../../images/cure2.png" alt="">
               </div>
-              <div class="item1">
+              <div class="item2">
                   <p>城市、县城、乡镇污水处理率（%）</p>
-                  <p>船舶污染物接收转运处置设施建设进度</p>
+                  <p style="margin-left: 4vw">船舶污染物接收转运处置设施建设进度</p>
               </div>
               <div class="item1">
                   <Text1 :text="text2" />
                   <year-select></year-select>
               </div>
-              <Table4 style="margin-top: 10px" />
+              <Table4 style="margin-top: 10px; margin-bottom: 40px" />
           </div>
       </div>
   </div>
@@ -45,7 +47,7 @@ import Text1 from '../../components/nineTopics/text1.vue'
 import Text2 from '../../components/nineTopics/text2.vue'
 import YearSelect from '../../components/nineTopics/yearSelect.vue'
 import Table4 from '../../components/nineTopics/table4.vue'
-import Block1 from '../../components/nineTopics/block1.vue'
+// import Block1 from '../../components/nineTopics/block1.vue'
 export default {
     name: 'protect',
     components: {
@@ -55,12 +57,14 @@ export default {
         Text2,
         YearSelect,
         Table4,
-        Block1
+        // Block1
     },
     data() {
         return {
             text1: "重要指标",
             text2: "入河排污口",
+            flag1: false,
+            flag2: true,
             text3: {
                 num:2329,
                 text:"沿江一公里范围内化工企业数量（个）"
@@ -80,6 +84,18 @@ export default {
             msg1: "污水处理情况",
             msg2: "水产养殖污染防治"
         }
+    },
+    methods: {
+        swichFlag1() {
+            this.flag1 = false;
+            this.flag2 = true;
+            this.flag3 = true;
+        },
+        swichFlag2() {
+            this.flag1 = true;
+            this.flag2 = false;
+            this.flag3 = true;
+        },
     }
 }
 </script>
@@ -92,7 +108,7 @@ export default {
         background-size: 100% 100%;
         .btn_wrapper{
             display: flex;
-            width: 240px;
+            width: 16vw;
             justify-content: space-between;
             margin: 10px 0 0 10px;
         }
@@ -100,7 +116,8 @@ export default {
             display: flex;
             justify-content: space-between;
             .wrapper{
-                width: 36vw;
+                width: 50vw;
+                // background: red;
                 display: flex;
                 flex-direction: column;
                 margin-top: 20px;
@@ -113,7 +130,12 @@ export default {
                     margin-top: 10px;
                 }
                 .item2{
-                    margin: 0 auto;
+                    display: flex;
+                    margin-top: 4vh;
+                    img{
+                        width: 16vw;
+                        height: 16vh;
+                    }
                 }
                 p{
                     color: #ffffff;

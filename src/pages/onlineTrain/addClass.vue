@@ -5,20 +5,20 @@
         <div class="content">
             <div class="btn">新增课程</div>
             <div style="width: 80%; margin: 10px auto">
-                <el-form ref="form" :model="form" label-width="80px">
-                    <el-form-item label="课程名称">
+                <el-form :rules="rules" ref="form" :model="form" label-width="80px">
+                    <el-form-item label="课程名称" prop="name">
                         <el-input v-model="form.name"></el-input>
                     </el-form-item>
-                    <el-form-item label="讲师">
+                    <el-form-item label="讲师" prop="teacher">
                         <el-input v-model="form.teacher"></el-input>
                     </el-form-item>
-                    <el-form-item label="讲师简介">
+                    <el-form-item label="讲师简介" prop="teacherIntro">
                         <el-input type="textarea" :rows="4" v-model="form.teacherIntro"></el-input>
                     </el-form-item>
-                    <el-form-item label="课程简介">
+                    <el-form-item label="课程简介" prop="classIntro">
                         <el-input type="textarea" :rows="4" v-model="form.classIntro"></el-input>
                     </el-form-item>
-                    <el-form-item label="课程视频">
+                    <el-form-item label="课程视频" prop="video">
                         <el-upload
                             class="upload-demo"
                             action="https://jsonplaceholder.typicode.com/posts/"
@@ -33,7 +33,7 @@
                             <!-- <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div> -->
                         </el-upload>
                     </el-form-item>
-                    <el-form-item label="课程类型">
+                    <el-form-item label="课程类型" prop="type">
                         <el-select v-model="value" placeholder="请选择">
                             <el-option
                                 v-for="item in options"
@@ -43,13 +43,13 @@
                             </el-option>
                         </el-select>
                     </el-form-item>
-                    <el-form-item label="发布范围">
+                    <el-form-item label="发布范围" prop="range">
                         <el-checkbox :indeterminate="isIndeterminate1" v-model="checkAll1" @change="handleCheckAllChange1">全选</el-checkbox>
                         <el-checkbox-group v-model="checkedLevels" @change="handleCheckedLevelsChange">
                           <el-checkbox v-for="level in levels" :label="level" :key="level">{{level}}</el-checkbox>
                         </el-checkbox-group>
                     </el-form-item>
-                    <el-form-item label="发布对象">
+                    <el-form-item label="发布对象" prop="obj">
                         <el-checkbox :indeterminate="isIndeterminate2" v-model="checkAll2" @change="handleCheckAllChange2">全选</el-checkbox>
                         <el-checkbox-group v-model="checkedObjects" @change="handleCheckedObjectsChange">
                           <el-checkbox v-for="obj in objects" :label="obj" :key="obj">{{obj}}</el-checkbox>
@@ -81,6 +81,17 @@ export default {
     },
     data() {
       return {
+        rules: {
+          name:[ { required: true, message: '请输入名称', trigger: 'blur' },],
+          teacher: [{ required: true, message: '请输入老师', trigger: 'blur' },],
+          teacherIntro: [{ required: true, message: '请输入老师简介', trigger: 'blur' },],
+          classIntro: [{ required: true, message: '请输入课程简介', trigger: 'blur' },],
+          video:[{ required: true, message: '请上传视频', trigger: 'blur' },],
+          type: [{ required: true, message: '请选择课程类型', trigger: 'blur' },],
+          range: [{ required: true, message: '请选择发布范围', trigger: 'blur' },],
+          obj: [{ required: true, message: '请选择发布对象', trigger: 'blur' },]
+
+        },
         form: {
           name: '',
           teacher:'',

@@ -13,19 +13,19 @@ export default {
 
 <style lang="scss" scoped>
     .block2_container{
-        min-width: 160px;
-        min-height: 60px;
-        border-radius: 5px;
+        min-width: 10vw;
+        min-height: 10vh;
+        // background: green;
         h3{
             color: #02ccff;
-            font-size: 20px;
+            font-size: 18px;
             text-align: center;
-            // line-height: 40px;
+            line-height: 5vh;
             font-weight: bold;
         }
         p{
             color: #ffffff;
-            font-size: 8px;
+            font-size: 6px;
             text-align: center;
             margin-top: 6px;
         }

@@ -7,8 +7,8 @@
                 <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
                     <el-menu :default-openeds="['1']">
                         <el-submenu index="1">
-                            <el-menu-item index="1-1">水质水量初始数据录入</el-menu-item>
-                            <el-menu-item index="1-2">水质水量整编数据管理</el-menu-item>
+                            <!-- <el-menu-item index="1-1">水质水量初始数据录入</el-menu-item>
+                            <el-menu-item index="1-2">水质水量整编数据管理</el-menu-item> -->
                             <el-menu-item index="1-3" @click="toItem3">水质水量月报管理</el-menu-item>
                             <el-menu-item index="1-4" @click="toItem4">多年平均水量数据管理</el-menu-item>
                             <el-menu-item index="1-5" @click="toItem5">多年平均降水量数据管理</el-menu-item>
@@ -75,9 +75,9 @@ export default {
         return {
             // item1: false,
             // item2: false,
-            item3: false,
+            item3: true,
             item4: false,
-            item5: true,
+            item5: false,
             activeName: 'first'
         }
        

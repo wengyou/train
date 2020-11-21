@@ -2,9 +2,12 @@
     <div class="manage_container">
       <Header />
       <div class="btn_wrapper">
-          <block1 :msg="msg1" :flag="false"></block1>
-          <block1 :msg="msg2" :flag="true"></block1>
-          <block1 :msg="msg3" :flag="true"></block1>
+          <!-- <block1 :key="flag1" :msg="msg1" :flag="flag1" @click="swichFlag1()"></block1>
+          <block1 :key="flag2" :msg="msg2" :flag="flag2" @click="swichFlag2()"></block1>
+          <block1 :key="flag3" :msg="msg3" :flag="flag3" @click="swichFlag3()"></block1> -->
+          <el-button type="primary" :style=" flag1 ? 'background: #0135ad' : ''" size="mini" @click="swichFlag1()">河湖综合保护规划</el-button>
+          <el-button type="primary" :style=" flag2 ? 'background: #0135ad' : ''" size="mini" @click="swichFlag2()">涉河湖专项规划</el-button>
+          <el-button type="primary" :style=" flag3 ? 'background: #0135ad' : ''" size="mini" @click="swichFlag3()">重点水利工程建设</el-button>
       </div>
       
       <div class="wrapper" >
@@ -19,10 +22,10 @@
          </div>
          <div class="con">
            <!-- <pie-chart></pie-chart> -->
-             <el-progress type="circle" :percentage="40" width="100" color="#19dbb6"></el-progress>
-             <el-progress type="circle" :percentage="30" width="100" color="#f27f59"></el-progress>
+             <img src="../../images/nine1.png" alt="">
+             <img src="../../images/nine2.png" alt="">
              <year-select></year-select>
-             <el-progress type="circle" :percentage="40" width="100" color="#e7f19a"></el-progress>
+             <img src="../../images/nine3.png" alt="">
          </div>
          <div class="con">
            <year-select></year-select>
@@ -40,7 +43,7 @@
 import Header from '../../components/header.vue'
 import mapCharts from '../../components/nineTopics/map.vue'
 // import pieChart from '../../components/nineTopics/pieChart.vue'
-import Block1 from '../../components/nineTopics/block1.vue'
+// import Block1 from '../../components/nineTopics/block1.vue'
 import Block2 from '../../components/nineTopics/block2.vue'
 import Text1 from '../../components/nineTopics/text1.vue'
 import YearSelect from '../../components/nineTopics/yearSelect.vue'
@@ -51,7 +54,7 @@ export default {
         Header,
         mapCharts,
         // pieChart,
-        Block1,
+        // Block1,
         Block2,
         Text1,
         YearSelect,
@@ -59,6 +62,9 @@ export default {
     },
   data() {
     return {
+        flag1: false,
+        flag2: true,
+        flag3: true,
         msg1: '河湖综合保护规划',
         msg2: '涉河湖专项规划',
         msg3: '重点水利工程建设',
@@ -76,11 +82,28 @@ export default {
         },
     };
   },
+  methods: {
+    swichFlag1() {
+      this.flag1 = false;
+      this.flag2 = true;
+      this.flag3 = true;
+    },
+    swichFlag2() {
+      this.flag1 = true;
+      this.flag2 = false;
+      this.flag3 = true;
+    },
+    swichFlag3() {
+      this.flag1 = true;
+      this.flag2 = true;
+      this.flag3 = false;
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
     .manage_container{
-      width: 100vw;
+      min-width: 100vw;
       height: 100vh;
       background: url('../../images/nineBg.jpg') no-repeat;
       background-size: 100% 100%;
@@ -91,10 +114,11 @@ export default {
         margin: 10px 0 0 10px;
       }
       .wrapper{
+        // background: red;
         display: flex;
         .con{
-          width: 200px;
-          height: 400px;
+          width: 15vw;
+          height: 80vh;
           display: flex;
           // background: red;
           flex-direction: column;

@@ -1,8 +1,8 @@
 <template>
     <div class="missionInit_container">
-        <Header />
+      <Header />
         <current-location></current-location>
-        <div class="flex">
+        <div class="flex wrapper">
           <el-input
             placeholder="关键字搜索"
             size="mini"
@@ -11,7 +11,7 @@
             <!-- <i slot="prefix" class="el-input__icon el-icon-search"></i> -->
           </el-input>
           <date-select></date-select>
-          <el-button type="primary" size='mini' class="btn"  @click="centerDialogVisible = true">+新建任务  </el-button>
+          <el-button type="primary" size='mini' class="btn"  @click="centerDialogVisible = true">+新建任务</el-button>
         </div>
         <!-- 表格 -->
         <el-table
@@ -25,7 +25,7 @@
             <el-table-column
                 prop="title"
                 label="标题">
-                <el-button type="text" size="small" @click="toLaunchDetail">河北巡河月报</el-button>
+                <el-button type="text" size="small" @click="toLaunchDetail">河长巡河月报</el-button>
             </el-table-column>
             <el-table-column
                 prop="date"
@@ -46,7 +46,7 @@
             <el-table-column
                 prop="opera"
                 label="操作">
-                <el-button icon="el-icon-search" type="text" size="small" @click="toLaunchDetail">查看详情</el-button>
+                 <el-button icon="el-icon-search" type="text" size="small" @click="toLaunchDetail">查看详情</el-button>       
             </el-table-column>
         </el-table>
         <!-- 弹框 -->
@@ -65,17 +65,19 @@
                     <el-checkbox label="宜昌市河长办" name="type"></el-checkbox>
                     <el-checkbox label="天门市河长办" name="type"></el-checkbox>
                     <el-checkbox label="襄阳市河长办" name="type"></el-checkbox>
-                    <el-checkbox label="天门市河长办" name="type"></el-checkbox>
-                    <el-checkbox label="襄阳市河长办" name="type"></el-checkbox>
-                    <el-checkbox label="武汉市河长办" name="type"></el-checkbox>
-                    <el-checkbox label="宜昌市河长办" name="type"></el-checkbox>
-                    <el-checkbox label="天门市河长办" name="type"></el-checkbox>
-                    <el-checkbox label="襄阳市河长办" name="type"></el-checkbox>
-                    <el-checkbox label="天门市河长办" name="type"></el-checkbox>
-                    <el-checkbox label="襄阳市河长办" name="type"></el-checkbox>
-                    <el-checkbox label="武汉市河长办" name="type"></el-checkbox>
-                    <el-checkbox label="宜昌市河长办" name="type"></el-checkbox>
-                    <el-checkbox label="天门市河长办" name="type"></el-checkbox>
+                    <el-checkbox label="黄石市河长办" name="type"></el-checkbox>
+                    <el-checkbox label="十堰市河长办" name="type"></el-checkbox>
+                    <el-checkbox label="鄂州市河长办" name="type"></el-checkbox>
+                    <el-checkbox label="荆门市河长办" name="type"></el-checkbox>
+                    <el-checkbox label="孝感市河长办" name="type"></el-checkbox>
+                    <el-checkbox label="荆州市河长办" name="type"></el-checkbox>
+                    <el-checkbox label="黄冈市河长办" name="type"></el-checkbox>
+                    <el-checkbox label="咸宁市河长办" name="type"></el-checkbox>
+                    <el-checkbox label="随州市河长办" name="type"></el-checkbox>
+                    <el-checkbox label="恩施土家族苗族自治州" name="type"></el-checkbox>
+                    <el-checkbox label="仙桃市河长办" name="type"></el-checkbox>
+                    <el-checkbox label="潜江市河长办" name="type"></el-checkbox>
+                    <el-checkbox label="神农架林区河长办" name="type"></el-checkbox>
                     </el-checkbox-group>
                 </el-form-item>
                 <el-form-item label="上报要求" prop="desc">
@@ -112,9 +114,9 @@
 </template>
 
 <script>
-import Header from '../../components/header.vue'
 import CurrentLocation from '../../components/currentLocation.vue'
 import DateSelect from '../../components/dateSelect.vue'
+import Header from '../../components/header.vue'
 export default {
     name: 'missionInit',
     components: {
@@ -196,6 +198,9 @@ export default {
     .missionInit_container{
         .btn{
             margin: 20px 0 20px 20px;
+        }
+        .wrapper{
+          align-items: center;
         }
     }
 </style>

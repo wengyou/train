@@ -45,6 +45,7 @@ export default {
             type: 'map',
             mapType: '湖北',
             roam: false,
+            zoom: 1,  
             itemStyle:{
                 normal:{
                     label:{show:true},
@@ -74,7 +75,7 @@ export default {
             label: {
                 normal: {
                     show: true,
-                    color: 'red',//每个区域文字颜色
+                    color: '#ffffff',//每个区域文字颜色
                     fontSize:'14px',
                 },
 

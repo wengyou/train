@@ -46,10 +46,10 @@
                  编辑
             </el-button>
             <el-button
-                icon="el-icon-search"
+                icon="el-icon-delete"
                 type="text"
                 size="small">
-                 查看
+                 删除
             </el-button>
         </el-table-column>
   </el-table>

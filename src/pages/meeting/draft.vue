@@ -2,7 +2,7 @@
     <div class="book_container">
         <Header />
         <current-location></current-location>
-        <Top :con="con" />
+        <Top :flag=true :con="con" />
         <div class="table_wrapper">
             <Table2 />
         </div>

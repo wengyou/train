@@ -1,5 +1,7 @@
 <template>
+  <div class="map_container">
     <div ref="map" class="map"></div>
+  </div>  
 </template>
 <script>
 import echarts from "echarts";
@@ -24,9 +26,13 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    .map{
-        width: 600px !important;
-        height: 450px !important;
-        margin-left: 100px
+.map_container{
+  .map{
+    // background: red;
+      width: 50vw !important;
+      height: 70vh !important;
+      margin-left: 100px
     }
+}
+    
 </style>

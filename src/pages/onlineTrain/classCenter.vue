@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="classes_list">
-            <div @click="toClassDetail" v-for="course in courses" :key="course">
+            <div class="item" @click="toClassDetail" v-for="course in courses" :key="course">
                 <Course :msg="true" />
             </div>
         </div>
@@ -97,11 +97,15 @@ export default {
         }
         .classes_list{
             width: 90%;
-            height: 400px;
-            margin: 10px auto;
+            min-height: 70vh;
+            margin: 20px auto;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            // justify-content: space-between;
+            .item{
+                margin-left: 1.25rem;
+                margin-top: 1.25rem;
+            }
         }
         .footer{
             width: 100%;

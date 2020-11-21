@@ -1,21 +1,32 @@
 <template>
     <div class="evaluate_container">
         <div class="item1">
-            <p>用户名：XXX</p>
-            <p>评论：好</p>
+            <p>用户名：{{name}}</p>
+            <p>评论：非常好</p>
         </div>
-        <div class="item2">
+        <div class="item2 flex2">
             <span>评分：</span>
+            <el-rate
+                v-model="value"
+                disabled
+                text-color="#ff9900"
+                score-template="{value}">
+            </el-rate>
         </div>
         <div class="item3">
-            <span>2020-11-02</span>
+            <span>2020-10-27 13:24:09</span>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    props: ['name'],
+    data() {
+      return {
+        value: 5
+      }
+    }
 }
 </script>
 

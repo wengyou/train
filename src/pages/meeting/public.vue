@@ -2,7 +2,7 @@
     <div class="book_container">
         <Header />
         <current-location></current-location>
-        <Top :con="con" />
+        <Top :flag=fasle :con="con" />
         <div class="wrapper">
             <el-form size="mini" :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
                 <el-form-item label="标题:" prop="name">
@@ -20,8 +20,9 @@
                         <span slot="tip" class="el-upload__tip toLeft">只能上传图片文件</span>
                     </el-upload>
                 </el-form-item>
-                <el-form-item label="内容:" prop="desc">
-                    <el-input type="textarea" :rows="6" v-model="ruleForm.desc"></el-input>
+                <el-form-item label="内容:" prop="desc" style="margin-bottom: 80px;">
+                    <!-- <el-input type="textarea" :rows="6" v-model="ruleForm.desc"></el-input> -->
+                    <WangEditor />
                 </el-form-item>
                 <el-form-item label="状态:" prop="status">
                     <el-radio-group v-model="ruleForm.status">
@@ -42,10 +43,11 @@
                     <el-checkbox label="微信公众号" name="type"></el-checkbox>
                     </el-checkbox-group>
                 </el-form-item>
-                <!-- <el-form-item>
-                    <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
-                    <el-button @click="resetForm('ruleForm')">重置</el-button>
-                </el-form-item> -->
+                <el-form-item style="margin: 20px auto">
+                    <el-button type="primary" @click="toPublicBook" >发布</el-button>
+                    <el-button type="primary" @click="toPublicBook" >保存草稿</el-button>
+                    <el-button @click="toPublicBook" >取消</el-button>
+                </el-form-item>
             </el-form>
         </div>
     </div>
@@ -55,12 +57,14 @@
 import Header from '../../components/header.vue'
 import CurrentLocation from '../../components/currentLocation.vue'
 import Top from '../../components/meeting/top.vue'
+import WangEditor from '../../components/wangEditor.vue'
 export default {
     name: 'draft',
     components: {
         Header,
         CurrentLocation,
         Top,
+        WangEditor
     },
     data() {
       return {
@@ -95,6 +99,9 @@ export default {
       },
       handlePreview(file) {
         console.log(file);
+      },
+      toPublicBook() {
+          this.$router.push({path: '/meeting/publicBook'})
       }
     }
 }
@@ -105,7 +112,8 @@ export default {
         background: #ffffff;
         min-height: 100vh;
         .wrapper{
-            width: 50vw;
+            width: 90vw;
+            min-height: 100vh;
             margin: 20px auto;
         }
     }

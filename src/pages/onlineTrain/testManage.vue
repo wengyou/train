@@ -3,28 +3,29 @@
         <Header />
         <current-location></current-location>
         <div class="header">
-            <el-button @click="dialogVisible = true" type="primary" size="mini" style="width: 110px; margin-left: 30px">新增考试</el-button>
+            <el-button @click="newTest();dialogVisible = true" type="primary" size="mini" style="width: 110px; margin-left: 30px">新增考试</el-button>
             <el-dialog
                 title="考试设置"
                 :visible.sync="dialogVisible"
                 width="60%">
                 <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
                     <el-form-item label="考试名称" prop="name">
-                        <el-input v-model="ruleForm.name"></el-input>
+                        <el-input v-model="ruleForm.title"></el-input>
                     </el-form-item>
                     <el-form-item label="满分分值" prop="name">
-                        <el-input v-model="ruleForm.name"></el-input>
+                        <el-input v-model="ruleForm.title2" placeholder="100"></el-input>
                     </el-form-item>
                     <el-form-item label="合格分数线" prop="name">
-                        <el-input v-model="ruleForm.name"></el-input>
+                        <el-input v-model="ruleForm.title3" placeholder="85"></el-input>
                     </el-form-item>
                     <el-form-item label="考卷时长" prop="name">
-                        <el-input v-model="ruleForm.name"></el-input>
+                        <el-input style="width: 90%" v-model="ruleForm.title4" placeholder="20"></el-input>
+                        <span class="toLeft">(分钟)</span>
                     </el-form-item>
                     <el-form-item label="考试截止时间" prop="name">
-                        <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1" style="width: 100%;"></el-date-picker>
+                        <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.title" style="width: 100%;"></el-date-picker>
                     </el-form-item>
-                    <el-form-item label="题型设置" prop="delivery">
+                    <el-form-item label="题型设置" prop="name">
                         <el-input-number size="mini" v-model="num" controls-position="right" @change="handleChange" :min="1" :max="10"></el-input-number>
                         <span style="margin-left:10px">单选</span>
                         <el-input-number style="margin-left: 20px" size="mini" v-model="num" controls-position="right" @change="handleChange" :min="1" :max="10"></el-input-number>
@@ -52,7 +53,17 @@
                 <span slot="footer" class="dialog-footer">
                     <el-button @click="dialogVisible = false" size="mini">取 消</el-button>
                     <el-button type="primary" @click="dialogVisible = false" size="mini">保存</el-button>
-                    <el-button type="primary" @click="dialogVisible = false" size="mini">发放试卷</el-button>
+                    <el-popconfirm
+                        confirm-button-text='是'
+                        style="margin-left:10px"
+                        cancel-button-text='否'
+                        icon="el-icon-info"
+                        icon-color="grey"
+                        title="是否确认发放试卷"
+                        @confirm="dialogVisible = false"
+                        >
+                        <el-button type="primary" slot="reference" size="mini">发放试卷</el-button>
+                    </el-popconfirm>
                 </span>
             </el-dialog>
             <el-dialog
@@ -90,6 +101,7 @@
                     border>
                     <el-table-column
                     prop="num"
+                    width="80"
                     label="序号">
                     </el-table-column>
                     <el-table-column
@@ -97,11 +109,13 @@
                     label="试题内容">
                     </el-table-column>
                     <el-table-column
-                    prop="questiontype"
+                    prop="questionType"
+                    width="100"
                     label="题型">
                     </el-table-column>
                     <el-table-column
                     prop="type"
+                    width="120"
                     label="题目分类">
                     </el-table-column>
                 </el-table>
@@ -110,6 +124,7 @@
                     <el-button type="primary" @click="selectVisible = false" size="mini">保 存</el-button>
                 </span>
             </el-dialog>
+
         </div>
         <div style="width: 96%; margin: 0 auto">
             <el-table
@@ -125,7 +140,7 @@
                 <el-table-column
                     prop="title"
                     label="考试名称"
-                    width="200px">
+                    width="300">
                     <template slot-scope="scope">
                         <el-tag size="medium" @click="toTestDetail">{{ scope.row.title }}</el-tag>
                     </template>
@@ -136,7 +151,7 @@
                 </el-table-column>
                 <el-table-column
                     prop="date"
-                    label="考试截至日期">
+                    label="考试截止日期">
                 </el-table-column>
                 <el-table-column
                     prop="range"
@@ -171,8 +186,12 @@
                 <el-table-column
                     label="操作"
                     width="200">
-                    <el-button type="text" icon="el-icon-edit" size="mini" @click="dialogVisible = true" >编辑</el-button>
-                    <el-button type="text" icon="el-icon-delete" size="mini">删除</el-button>
+                    <template slot-scope="scope">
+                        <el-button type="text" icon="el-icon-edit" size="mini" @click="sendData(scope.row);dialogVisible = true" >编辑</el-button>
+                        <el-button type="text" icon="el-icon-delete" size="mini">删除</el-button>
+                        <!-- <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+                        <el-button type="text" size="small">编辑</el-button> -->
+                    </template>
                 </el-table-column>
             </el-table>
         </div>
@@ -204,41 +223,48 @@ export default {
     },
     data() {
         return {
+            submitVisible:false,
+             rules: {
+                name: [
+                    { required: true, message: '请输入活动名称', trigger: 'blur' },
+                    { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+                ]
+            },
             dialogTableData:[{
                 num: 1,
-                content: '',
-                questionType: '',
-                type: ''
+                content: '习近平总书记做出重要指示，强调（）是“五位一体”总体布局和“四个全面”战略布局的重要内容。',
+                questionType: '选择题',
+                type: '河湖长制相关'
             },{
                 num: 2,
-                content: '',
-                questionType: '',
-                type: ''
+                content: '全面推行河长制要通过主要媒体向社会公告（）名单',
+                questionType: '选择题',
+                type: '河湖长制相关'
             },{
                 num: 3,
-                content: '',
-                questionType: '',
-                type: ''
+                content: '全面推行河长制主要任务包括哪些方面',
+                questionType: '选择题',
+                type: '河湖长制相关'
             },{
                 num: 4,
-                content: '',
-                questionType: '',
-                type: ''
+                content: '河长公示牌应标明（）等内容，接受社会监督',
+                questionType: '选择题',
+                type: '河湖长制相关'
             },{
                 num: 5,
-                content: '',
-                questionType: '',
-                type: ''
+                content: '要在全国（）全面推行河长制',
+                questionType: '选择题',
+                type: '河湖长制相关'
             },{
                 num: 6,
-                content: '',
-                questionType: '',
-                type: ''
+                content: '各级河长负责对（）履职情况进行督导，对目标任务完成情况进行考核，强化激励问责。',
+                questionType: '选择题',
+                type: '河湖长制相关'
             },{
                 num: 7,
-                content: '',
-                questionType: '',
-                type: ''
+                content: '河长制办公室承担河长制组织实施具体工作，落实（）确定的事项',
+                questionType: '选择题',
+                type: '河湖长制相关'
             }],
             tableData: [{
                 num: '1',
@@ -291,7 +317,25 @@ export default {
                 label: '全部'
                 }],
             value1: '',
-            options2: [],
+            options2: [{
+                value: '选项1',
+                label: '河湖基础'
+                }, {
+                value: '选项2',
+                label: '科普知识'
+                }, {
+                value: '选项3',
+                label: '河湖长制相关'
+                }, {
+                value: '选项4',
+                label: '生态文明建设'
+                }, {
+                value: '选项5',
+                label: '幸福河湖'
+                }, {
+                value: '选项6',
+                label: '其他'
+                }],
             value2: '',
             input2: '',
             dialogVisible: false,
@@ -341,6 +385,12 @@ export default {
       },
       toTestDetail() {
           this.$router.push({path: '/testDetail'})
+      },
+      sendData(e) {
+          this.ruleForm = e;
+      },
+      newTest() {
+          this.ruleForm = {};
       }
     }
 }

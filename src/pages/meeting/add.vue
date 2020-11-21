@@ -2,7 +2,7 @@
     <div class="add_container">
         <Header />
         <current-location></current-location>
-        <Top :con="con" />
+        <Top :flag=true :con="con" />
         <div class="content_wrapper">
             <div class="title">基础信息</div>
             <div class="input_wrapper">
@@ -57,6 +57,9 @@
                 </el-upload>
             </div>
         </div>
+        <div class="btn_wrapper">
+            <el-button size="mini" type="primary" @click="toBook">保存</el-button>
+        </div>
     </div>
 </template>
 
@@ -97,6 +100,9 @@ export default {
       },
       beforeRemove(file) {
         return this.$confirm(`确定移除 ${ file.name }？`);
+      },
+      toBook() {
+          this.$router.push({path: '/meeting/book'})
       }
     }
 }
@@ -104,8 +110,11 @@ export default {
 
 <style lang="scss" scoped>
     .add_container{
+        width: 100vw;
+        height: 100vh;
+        background: #ffffff;
         .content_wrapper{
-            width: 80vw;
+            width: 50vw;
             margin: 20px auto;
             .title{
                 width: 100%;
@@ -116,13 +125,23 @@ export default {
                 font-size: 14px;
             }
             .input_wrapper{
-                width: 50vw;
+                width: 40vw;
                 margin: 10px auto;
                 font-size: 12px;
                 span{
                     min-width: 60px;
                 }
             }
+        }
+        .btn_wrapper{
+            position: fixed;
+            bottom: 0;
+            width: 100vw;
+            height: 50px;
+            background: #dddddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 </style>

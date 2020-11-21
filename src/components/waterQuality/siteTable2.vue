@@ -1,0 +1,178 @@
+<template>
+    <el-table
+    :data="tableData"
+    border
+    style="width: 100%">
+    <el-table-column
+      prop="num"
+      label="序号"
+      width="100">
+    </el-table-column>
+    <el-table-column
+      prop="title1"
+      label="水功能区编码"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title2"
+      label="一级水功能区"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title3"
+      label="二级水功能区"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title4"
+      label="水功能区级别"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title5"
+      label="水功能区划类型"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title6"
+      label="水域类型"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title7"
+      label="所属流域"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title8"
+      label="所属水系"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title9"
+      label="水功能区起始断面"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title10"
+      label="水功能区面积(km³)"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title11"
+      label="水功能区长度(km)"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title12"
+      label="是否考核"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title13"
+      label="管理单位名称"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title14"
+      label="管理单位名称"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title415"
+      label="所在水资源分区"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title16"
+      label="所属行政分区"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title17"
+      label="监控级别"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title18"
+      label="国家重要检索码"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title19"
+      label="水质管理目标"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title20"
+      label="水功能区监测频次（次/年）"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="title21"
+      label="是否属于18条省级河流水功能区"
+      width="150">
+    </el-table-column>
+  </el-table>
+</template>
+
+<script>
+export default {
+    props: ['name'],
+    data() {
+        return {
+            tableData: [{
+                num: 1,
+                title1:'',
+                title2:'',
+                title3:'',
+                title4:'',
+                title5:'',
+                title6: '',
+                title7:'',
+                title8:'',
+                title9:'',
+                title10:'',
+                title11:'',
+                title12:'',
+                title13:'',
+                title14:'',
+                title15:'',
+                title16:'',
+                title17:'',
+                title18:'',
+                title19:'',
+                title20:'',
+                title21:'',
+            },{
+                num: 1,
+                title1:'',
+                title2:'',
+                title3:'',
+                title4:'',
+                title5:'',
+                title6: '',
+                title7:'',
+                title8:'',
+                title9:'',
+                title10:'',
+                title11:'',
+                title12:'',
+                title13:'',
+                title14:'',
+                title15:'',
+                title16:'',
+                title17:'',
+                title18:'',
+                title19:'',
+                title20:'',
+                title21:'',
+            },]
+        }
+    }
+}
+</script>
+
+<style>
+
+</style>

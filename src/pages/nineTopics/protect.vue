@@ -27,7 +27,7 @@
                     <block2 :block="block7"></block2>
                     <block2 :block="block8"></block2>
                 </div>
-                <div class="item2">
+                <!-- <div class="item2">
                     <Text1 :text="text1"></Text1>
                     <year-select></year-select>
                 </div>
@@ -36,7 +36,19 @@
                     <block2 :block="block10"></block2>
                     <block2 :block="block11"></block2>
                     <block2 :block="block12"></block2>
-                </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="item2">
+                <Text1 :text="text1"></Text1>
+                <year-select></year-select>
+            </div>
+            <div class="item2">
+                <block2 :block="block9"></block2>
+                <block2 :block="block10"></block2>
+                <block2 :block="block11"></block2>
+                <block2 :block="block12"></block2>
             </div>
         </div>
     </div>
@@ -117,22 +129,24 @@ export default {
 
 <style lang="scss" scoped>
     .protect_container{
-        width: 100vw;
-        height: 100vh;
+        min-width: 100vw;
+        min-height: 100vh;
         background: url('../../images/nineBg.jpg') no-repeat;
         background-size: 100% 100%;
         .container{
             display: flex;
             justify-content: space-between;
+            // background: red;
             .wrapper{
-                margin-right: 20px;
-                width: 800px;
+                // background: red;
+                margin-right: 5vw;
+                width: 30vw;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-end;
                 .item1{
                     display: flex;
-                    width: 330px;
+                    width: 100%;
                     margin-top: 10px;
                     justify-content: space-between;
                 }
@@ -142,6 +156,15 @@ export default {
                     justify-content: space-between;
                     margin-top: 10px;
                 }
+            }
+        }
+        .bottom{
+            width: 50vw;
+            margin-left: 45vw;
+            .item2{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 10px;
             }
         }
     }

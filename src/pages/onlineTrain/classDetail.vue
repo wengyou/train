@@ -52,9 +52,9 @@
                     </el-tab-pane>
                     <el-tab-pane label="评价区" name="second">
                         <div class="evaluate_wrapper">
-                            <Evaluate />
-                            <Evaluate />
-                            <Evaluate />
+                            <div v-for="(item,index) in evaluateData" :key="index">
+                                 <Evaluate :name="item.name" />
+                            </div>
                         </div>
                     </el-tab-pane>
                 </el-tabs>
@@ -73,14 +73,10 @@
                     </div>
                     <div class="title_intro">评价</div>
                     <div class="title_score">
-                        给该课程打分：
-                        <i class="el-icon-star-on" style="color: #ffb55e; font-size: 20px"></i>
-                        <i class="el-icon-star-on" style="color: #ffb55e; font-size: 20px"></i>
-                        <i class="el-icon-star-on" style="color: #ffb55e; font-size: 20px"></i>
-                        <i class="el-icon-star-on" style="color: #ffb55e; font-size: 20px"></i>
-                        <i class="el-icon-star-on" style="color: #ffb55e; font-size: 20px"></i>
+                        <p>给该课程打分：</p>
+                        <el-rate v-model="value1" @change="visible"></el-rate>
                     </div>
-                    <div style="margin-top: 10px">
+                    <div v-if="markVisible" style="margin-top: 10px">
                         <p style="text-indent: 10px; line-henght: 30px">备注：</p>
                         <el-input
                         style="margin-left: 10px; width: 90%; margin-top: 6px"
@@ -91,7 +87,13 @@
                     </div>
                     <div class="btn">
                         <el-button size="mini">取消</el-button>
-                        <el-button type="primary" size="mini" style="margin-right: 10px; color: #ffffff">提交</el-button>
+                        <el-button 
+                            type="primary" 
+                            size="mini" 
+                            @click="submit"
+                            style="margin-right: 10px; color: #ffffff">
+                            提交
+                        </el-button>
                     </div>
                 </div>
             </div>
@@ -115,7 +117,18 @@ export default {
     },
     data() {
       return {
+        evaluateData: [{
+            name: '李维来',
+        },{
+            name: '胡冰',
+        },{
+            name: '秦昊',
+        },{
+            name: '郑清',
+        }],
         activeName: 'first',
+        value1: null,
+        markVisible: false,
         teacherIntroduction:"1979年12月出生，湖北武汉人，法学学士、公共管理硕士，2002年7月参加工作，现任湖北省水利厅四级调研员，兼任厅法律顾问、公职律师，湖北省人民检察院民事行政诉讼监督案件专家委员会委员，湖北法院环境资源及公益诉讼审判咨询专家。从事多年水行政执法、行政立法、合法性审核工作，对行政处罚、行政强制理论、实务及涉水行政诉讼案例研究颇深，经验丰富。曾牵头制定全省水行政执法文书格式文本、全省水政监察制度、水行政执法三维教学片等重要制度、规范、教学片，参与出台《湖北省河道采砂管理条例》，在《法治政府》、《湖北水利》等刊物发表多篇文章，积极推动了我省水利法治工作。"
       };
     },
@@ -125,6 +138,13 @@ export default {
       },
       toStartStudy() {
           this.$router.push({path: '/startStudy'})
+      },
+      visible() {
+          this.markVisible = true;
+      },
+      submit() {
+          this.markVisible = false;
+          this.value1 = null
       }
     }
 }
@@ -133,7 +153,7 @@ export default {
 <style lang="scss" scope>
     .classCenter_container{
         .content{
-            width: 65vw;
+            width: 70vw;
             margin: 20px auto;
             .className{
                 display: flex;
@@ -221,10 +241,11 @@ export default {
                         font-weight: bold;
                     }
                     .title_score{
-                        width: 100%;
+                        width: 90%;
                         height: 20px;
                         line-height: 20px;
                         text-indent: 10px;
+                        display: flex;
                     }
                     .btn{
                         width: 100%;

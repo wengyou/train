@@ -2,13 +2,21 @@
     <div class="top">
         <div></div>
         <span>{{con}}</span>
-        <p class="toRight">X</p>
+        <p class="toRight" @click="flag ? toBook() : toPublicBook()">X</p>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['con']
+    props: ['con', 'flag'],
+    methods: {
+        toBook() {
+            this.$router.push({path: '/meeting/book'})
+        },
+        toPublicBook() {
+            this.$router.push({path: '/meeting/publicBook'})
+        },
+    }
 }
 </script>
 

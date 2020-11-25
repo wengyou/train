@@ -1,8 +1,8 @@
 <template>
     <div class="water10_container">
         <Header :con="headCon" />
-        <div class="wrapper">
-            <div class="flex2">
+        <div class="wrapper ">
+            <div class="flex2 wrapper3">
                 <span class="title">水质水量月报名称:</span>
                 <el-input size="mini" v-model="input" placeholder="请输入"></el-input>
             </div>
@@ -27,19 +27,29 @@
                     :data="tableData"
                     style="width: 100%">
                     <el-table-column
-                        prop="date"
-                        label="文件名称">
-                    </el-table-column>
-                    <el-table-column
                         prop="name"
-                        label="文件大小">
+                        label="附件名称">
                     </el-table-column>
                     <el-table-column
-                        prop="address"
+                        prop="num"
+                        label="附件大小">
+                    </el-table-column>
+                    <el-table-column
                         label="操作">
+                        <el-button
+                            icon="el-icon-delete"
+                            type="text"
+                            size="mini">
+                            移除
+                        </el-button>
                     </el-table-column>
                 </el-table>
             </div>
+        </div>
+        <div class="btn_wrapper">
+            <el-button size="mini" type="primary">发布</el-button>
+            <el-button size="mini">保存草稿</el-button>
+            <el-button size="mini">取消</el-button>
         </div>
     </div>
 </template>
@@ -56,7 +66,10 @@ export default {
             headCon: '2020年7月水质水量月报终稿录入',
             input: '',
             fileList: [],
-            tableData: []
+            tableData: [{
+                name: '2019年度体检通知.docx',
+                num: '140k'
+            }]
         }
     },
     methods: {
@@ -80,11 +93,12 @@ export default {
     .water10_container{
         width: 100vw;
         height: 100vh;
-        background: #ffffff;
         .wrapper{
             width: 60vw;
-            margin: 10px auto;
+            min-height: 86vh;
+            margin: 0 auto;
             font-size: 14px;
+            background: #ffffff;
             .title{
                 width: 200px;
             }
@@ -92,6 +106,21 @@ export default {
                 width: 50vw;
                 margin: 20px auto;
             }
+            .wrapper3{
+                width: 50vw;
+                margin: 0 auto;
+                padding-top: 20px;
+            }
+        }
+        .btn_wrapper{
+            position: fixed;
+            bottom: 0;
+            background: #e8e8e8;
+            width: 100vw;
+            height: 6vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 </style>

@@ -7,7 +7,7 @@
             <Select :title="title3" :con="con" />
         </div>
         <div>
-             <el-button size="mini" type="primary">+新增</el-button>
+             <el-button size="mini" type="primary" @click="toSiteInfo5">+新增</el-button>
         </div>
     </div>
 </template>
@@ -28,7 +28,12 @@ export default {
             title3: '监控级别',
             con: '全部'
         }
-    }
+    },
+    methods: {
+        toSiteInfo5() {
+            this.$router.push({path: '/waterQuality/siteInfo5'})
+        }  
+  }
 }
 </script>
 

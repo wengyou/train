@@ -10,9 +10,21 @@
                     </div>
                     
                 </el-tab-pane>
-                <el-tab-pane label="本月、上月不达标国控断面汇总" name="second">配置管理</el-tab-pane>
-                <el-tab-pane label="本月、上月不达标水功能区汇总" name="third">角色管理</el-tab-pane>
-                <el-tab-pane label="省级河湖水量汇总表" name="four">角色管理</el-tab-pane>
+                <el-tab-pane label="本月、上月不达标国控断面汇总" name="second">
+                    <el-button class="down_btn" size="mini" icon="el-icon-download" type="primary">下载</el-button>
+                    <h2>综述表1 不达标国控断面汇总表</h2>
+                    <Table8 />
+                </el-tab-pane>
+                <el-tab-pane label="本月、上月不达标水功能区汇总" name="third">
+                    <el-button class="down_btn" size="mini" icon="el-icon-download" type="primary">下载</el-button>
+                    <h2>综述表2 本月、上月不达标水功能区汇总</h2>
+                    <Table8 />
+                </el-tab-pane>
+                <el-tab-pane label="省级河湖水量汇总表" name="four">
+                    <el-button class="down_btn" size="mini" icon="el-icon-download" type="primary">下载</el-button>
+                    <h2>综述表3 省级河湖水量汇总表</h2>
+                    <Table8 />
+                </el-tab-pane>
             </el-tabs>
         </div> 
     </div>
@@ -20,10 +32,12 @@
 
 <script>
 import Header from '../../components/waterQuality/header.vue'
+import Table8 from '../../components/waterQuality/table8.vue'
 export default {
     name: 'Water3',
     components: {
         Header,
+        Table8
     },
     data() {
         return{
@@ -55,6 +69,13 @@ export default {
                     width: 100%;
                     height: 100%;
                 }
+            }
+            h2{
+                text-align: center;
+                line-height: 70px;
+            }
+            .down_btn{
+                margin-left: 54vw;
             }
         }
     }

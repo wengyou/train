@@ -25,7 +25,7 @@ export default {
         }
         p{
             color: #ffffff;
-            font-size: 6px;
+            // font-size: 6px;
             text-align: center;
             margin-top: 6px;
         }

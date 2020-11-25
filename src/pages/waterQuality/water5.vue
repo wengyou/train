@@ -1,13 +1,13 @@
 <template>
     <div class="water1_container">
-        <Header :con="headCon" />
+        <Header4 :con="headCon" />
         <div class="top">
             <p>录入时间：2020年7月5日</p>
             <p>省级18条责任河湖流域多年平均降水量</p>
             <p></p>
         </div>
         <div class="table_wrapper">
-            <Table3 />
+            <Table3 style="margin-bottom: 50px" />
         </div>
         <div class="bottom">
             <el-pagination
@@ -21,12 +21,12 @@
 </template>
 
 <script>
-import Header from '../../components/waterQuality/header.vue'
+import Header4 from '../../components/waterQuality/header4.vue'
 import Table3 from '../../components/waterQuality/table3.vue'
 export default {
     name: 'Water1',
     components: {
-        Header,
+        Header4,
         Table3
     },
     data() {

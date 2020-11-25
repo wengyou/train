@@ -36,7 +36,7 @@
               <el-button icon="el-icon-edit" type="text" size="mini" @click="toWater9">录入月报数据</el-button>
           </div>
           <div v-if="scope.row.title3 === '月报已发布' ">
-              <el-button icon="el-icon-search" type="text" size="mini" @click="toWater11">查看</el-button>
+              <el-button icon="el-icon-search" type="text" size="mini" @click="toWater13">查看</el-button>
           </div>
         </template>
     </el-table-column>
@@ -73,8 +73,8 @@ export default {
       toWater9() {
         this.$router.push({path: '/waterQuality/water9'})
       },
-      toWater11() {
-        this.$router.push({path: '/waterQuality/water11'})
+      toWater13() {
+        this.$router.push({path: '/waterQuality/water13'})
       }
     }
 }

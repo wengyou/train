@@ -71,7 +71,13 @@ export default {
           label: '全部'
         }, {
           value: '选项2',
-          label: '双皮奶'
+          label: '联席会议'
+        },{
+          value: '选项3',
+          label: '河湖长会议'
+        }, {
+          value: '选项4',
+          label: '其他'
         }],
         value: '',
         btn1: true,

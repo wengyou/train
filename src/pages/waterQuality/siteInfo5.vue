@@ -18,10 +18,10 @@
                     <p>{{item.title}}:</p>
                      <el-select size="mini" v-model="value" :placeholder="item.con">
                         <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value">
+                            v-for="i in item.options"
+                            :key="i.value"
+                            :label="i.label"
+                            :value="i.value">
                         </el-option>
                     </el-select>
                 </div>
@@ -33,7 +33,7 @@
             <div>
                 <el-button class="toTop" type="primary" size="mini">+新增</el-button>
             </div>
-            <SiteTable5 class="toTop" />
+            <SiteTable6 class="toTop" />
             <div class="flex2 wrap">
                 <p>水功能区监测频次(年/次):</p>
                 <el-input style="width: 200px" size="mini" v-model="input" placeholder="请输入"></el-input>
@@ -56,13 +56,13 @@
                 style="width: 41vw"
                 type="textarea"
                 :rows="6"
-                placeholder="请输入内容"
+                placeholder="Ⅲ"
                 v-model="textarea">
             </el-input>
         </div>
         <div class="btn_wrapper">
-            <el-button size="mini" type="primary">保存</el-button>
-            <el-button size="mini">取消</el-button>
+            <el-button size="mini" type="primary" @click="toBack">保存</el-button>
+            <el-button size="mini" @click="toBack">取消</el-button>
         </div>
     </div>
 </template>
@@ -70,13 +70,13 @@
 <script>
 import Header from '../../components/waterQuality/header.vue'
 import Title from '../../components/waterQuality/title.vue'
-import SiteTable5 from '../../components/waterQuality/siteTable5.vue'
+import SiteTable6 from '../../components/waterQuality/siteTable6.vue'
 export default {
     name: 'siteInfo',
     components: {
         Header,
         Title,
-        SiteTable5,
+        SiteTable6,
     },
     data() {
         return {
@@ -85,10 +85,10 @@ export default {
             title2: '业务信息',
             options: [{
             value: '选项1',
-            label: '黄金糕'
+            label: '是'
             }, {
             value: '选项2',
-            label: '双皮奶'
+            label: '否'
             },],
             value: '',
             form1: [
@@ -109,22 +109,179 @@ export default {
             ],
             form3:[{
                 title: '水功能区划级别',
-                con: '一级水功能区'
+                con: '一级水功能区',
+                options: [{
+                    value: '选项1',
+                    label: '一级水功能区',
+                },{
+                    value: '选项2',
+                    label: '二级水功能区',
+                }]
             },{
                 title: '水功能区划类型',
-                con: '保护区'
+                con: '保护区',
+                options: [{
+                    value: '选项1',
+                    label: '保护区',
+                },{
+                    value: '选项2',
+                    label: '保留区',
+                },{
+                    value: '选项3',
+                    label: '缓冲区',
+                },{
+                    value: '选项4',
+                    label: '饮用水源区',
+                },{
+                    value: '选项5',
+                    label: '工业用水区',
+                },{
+                    value: '选项6',
+                    label: '农业用水区',
+                },{
+                    value: '选项7',
+                    label: '渔业用水区',
+                },{
+                    value: '选项8',
+                    label: '景观娱乐用水区',
+                },{
+                    value: '选项9',
+                    label: '过渡区',
+                },{
+                    value: '选项10',
+                    label: '排污控制区',
+                }]
             },{
                 title: '水域类型',
-                con: '江河'
+                con: '江河',
+                options: [{
+                    value: '选项1',
+                    label: '江河',
+                },{
+                    value: '选项2',
+                    label: '湖泊',
+                },{
+                    value: '选项3',
+                    label: '水库',
+                },{
+                    value: '选项4',
+                    label: '其他',
+                }]
+            },{
+                title: '流域',
+                con: '长江干流水系',
+                options: [{
+                    value: '选项1',
+                    label: '长江干流水系',
+                },{
+                    value: '选项2',
+                    label: '淮河洪泽湖以上水系',
+                },{
+                    value: '选项3',
+                    label: '汉江水系',
+                },{
+                    value: '选项4',
+                    label: '洞庭湖水系',
+                },{
+                    value: '选项5',
+                    label: '淮河流域',
+                },{
+                    value: '选项6',
+                    label: '乌江水系',
+                },{
+                    value: '选项7',
+                    label: '长江流域',
+                },{
+                    value: '选项8',
+                    label: '潘阳湖水系',
+                }]
             },{
                 title: '是否考核',
-                con: '是'
+                con: '是',
+                options: [{
+                    value: '选项1',
+                    label: '是',
+                },{
+                    value: '选项2',
+                    label: '否',
+                }]
             },{
                 title: '所在行政区划',
-                con: '请输入'
+                con: '请输入',
+                options: [{
+                value: '选项1',
+                label: '全部'
+            },{
+                value: '选项2',
+                label: '武汉市'
+            },{
+                value: '选项3',
+                label: '黄石市'
+            },{
+                value: '选项4',
+                label: '十堰市'
+            },{
+                value: '选项5',
+                label: '宜昌市'
+            },{
+                value: '选项6',
+                label: '襄阳市'
+            },{
+                value: '选项7',
+                label: '鄂州市'
+            },{
+                value: '选项8',
+                label: '荆门市'
+            },{
+                value: '选项9',
+                label: '孝感市'
+            },{
+                value: '选项10',
+                label: '荆州市'
+            },{
+                value: '选项11',
+                label: '黄冈市'
+            },{
+                value: '选项12',
+                label: '咸宁市'
+            },{
+                value: '选项13',
+                label: '随州市'
+            },{
+                value: '选项14',
+                label: '恩施土家族苗族自治州'
+            },{
+                value: '选项15',
+                label: '仙桃市'
+            },{
+                value: '选项16',
+                label: '潜江市'
+            },{
+                value: '选项17',
+                label: '天门市'
+            },{
+                value: '选项18',
+                label: '神农架林区'
+            },]
             },{
                 title: '监控级别',
-                con: '国控级'
+                con: '国控级',
+                options: [{
+                    value: '选项1',
+                    label: '国控级',
+                },{
+                    value: '选项2',
+                    label: '省控级',
+                },{
+                    value: '选项3',
+                    label: '地市级',
+                },{
+                    value: '选项4',
+                    label: '区县级',
+                },{
+                    value: '选项5',
+                    label: '其他',
+                }]
             },],
             form4: ['市级河湖长','市级河湖长联系部门','市级河湖长职务','测站序号'],
             form5: [{
@@ -149,6 +306,11 @@ export default {
                 con: '请选择'
             }]
         }
+    },
+    methods: {
+        toBack() {
+            this.$router.go(-1)
+        }
     }
 }
 </script>
@@ -156,11 +318,11 @@ export default {
 <style lang="scss" scoped>
     .siteInfo2_container{
         background: #ffffff;
-        width: 70vw;
+        width: 60vw;
         min-height: 100vh;
         margin: 0 auto;
         .wrapper{
-            width: 60%;
+            width: 70%;
             margin: 10px auto;
             display: flex;
             justify-content: space-between;

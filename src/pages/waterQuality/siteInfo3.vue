@@ -55,8 +55,8 @@
             </div>
         </div>
         <div class="btn_wrapper">
-            <el-button size="mini" type="primary">保存</el-button>
-            <el-button size="mini">取消</el-button>
+            <el-button size="mini" type="primary" @click="toBack" >保存</el-button>
+            <el-button size="mini" @click="toBack" >取消</el-button>
         </div>
     </div>
 </template>
@@ -111,6 +111,11 @@ export default {
                 con: '是'
             }]
         }
+    },
+    methods: {
+        toBack() {
+            this.$router.go(-1)
+        }
     }
 }
 </script>
@@ -118,11 +123,12 @@ export default {
 <style lang="scss" scoped>
     .siteInfo3_container{
         background: #ffffff;
-        width: 70vw;
+        width: 60vw;
         min-height: 100vh;
         margin: 0 auto;
         .wrapper{
             width: 60%;
+            height: 50vh;
             margin: 10px auto;
             display: flex;
             justify-content: space-between;
@@ -149,8 +155,9 @@ export default {
             }
         }
         .btn_wrapper{
+            // position: fixed;
+            // bottom: 0;
             display: flex;
-            width: 100%;
             height: 50px;
             align-items: center;
             justify-content: center;

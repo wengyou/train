@@ -10,7 +10,7 @@
                             <el-menu-item index="1-1" @click="toItem1">水功能区基本信息</el-menu-item>
                             <el-menu-item index="1-2" @click="toItem2">地表水质监测站点信息</el-menu-item>
                             <el-menu-item index="1-3" @click="toItem3" >水文站基础信息</el-menu-item>
-                            <el-menu-item index="1-4" @click="toItem3">河道监测断面基础信息</el-menu-item>
+                            <el-menu-item index="1-4" @click="toItem4">河道监测断面基础信息</el-menu-item>
                             <el-menu-item index="1-5" @click="toItem5">库(湖)容曲线表</el-menu-item>
                         </el-submenu>
                     </el-menu>
@@ -43,11 +43,24 @@
                 <el-container v-if="item3">
                     <el-header>
                         <div style="margin-top: 20px; width: 80vw">
-                            <SiteHeader3 />
+                            <SiteHeader3 :flag=true />
                             <PartArea />
                         </div>
                     </el-header>
                     <el-main style="min-height: 100vh; margin-top:40px">
+                        <SiteTable3 />
+                    </el-main>
+                </el-container>
+
+                <el-container v-if="item4">
+                    <el-header>
+                        <div style="margin-top: 20px; width: 80vw">
+                            <SiteHeader3 :flag=false />
+                            <PartArea />
+                        </div>
+                    </el-header>
+                    <el-main style="min-height: 100vh; margin-top:40px">
+                        
                         <SiteTable3 />
                     </el-main>
                 </el-container>
@@ -102,6 +115,7 @@ export default {
             item1: true,
             item2: false,
             item3: false,
+            item4: false,
             item5: false,
         }
        
@@ -114,24 +128,35 @@ export default {
             this.item1 = true;
             this.item2 = false;
             this.item3 = false;
+            this.item4 = false;
             this.item5 = false;
         },
         toItem2() {
             this.item1 = false;
             this.item2 = true;
             this.item3 = false;
+            this.item4 = false;
             this.item5 = false;
         },
         toItem3() {
             this.item1 = false;
             this.item2 = false;
             this.item3 = true;
+            this.item4 = false;
+            this.item5 = false;
+        },
+        toItem4() {
+            this.item1 = false;
+            this.item2 = false;
+            this.item3 = false;
+            this.item4 = true;
             this.item5 = false;
         },
         toItem5() {
             this.item1 = false;
             this.item2 = false;
             this.item3 = false;
+            this.item4 = false;
             this.item5 = true;
         },
     }

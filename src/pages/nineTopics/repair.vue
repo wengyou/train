@@ -97,19 +97,20 @@ export default {
         background-size: 100% 100%;
         .container{
             display: flex;
+            height: 90%;
             justify-content: space-between;
             .wrapper{
                 width: 36vw;
                 display: flex;
                 flex-direction: column;
-                margin-top: 20px;
-                margin-right: 20px;
-                justify-content: space-between;
+                margin: auto 2rem;
+                justify-content: space-around;
+                // background: red;
                 .item1{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    margin-top: 10px;
+                    margin-top: .6rem;
                 }
                 .item2{
                     margin: 0 auto;

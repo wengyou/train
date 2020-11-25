@@ -11,11 +11,12 @@ export default {
 
 <style lang="scss" scoped>
     .header_container{
-        width: 100%;
-        height: 60px;
+        width: 60vw;
+        height: 8vh;
+        margin: 0 auto;
         text-align: center;
-        line-height: 60px;
-        font-size: 16px;
+        line-height: 1.5rem;
+        font-size: 20px;
         background-image: linear-gradient(to right, #0890f2 , #1c46d5);
         color: #ffffff;
         font-weight: bold;

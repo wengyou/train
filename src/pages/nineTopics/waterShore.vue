@@ -6,7 +6,7 @@
                 <el-button type="primary" :style=" flag1 ? 'background: #0135ad' : ''" size="mini" @click="swichFlag1()">河湖划界确权</el-button>
                 <el-button type="primary" :style=" flag2 ? 'background: #0135ad' : ''" size="mini" @click="swichFlag2()">水利工程划界确权</el-button>
           </div>
-          <p style="margin-right: 16vw; color: #ffffff; font-size: 12px;">水域岸线管护指标</p>
+          <p style="margin-right: 16vw; color: #ffffff; line-height: 1rem">水域岸线管护指标</p>
       </div>
       <div class="container">
           <map-charts></map-charts>

@@ -27,16 +27,6 @@
                     <block2 :block="block7"></block2>
                     <block2 :block="block8"></block2>
                 </div>
-                <!-- <div class="item2">
-                    <Text1 :text="text1"></Text1>
-                    <year-select></year-select>
-                </div>
-                <div class="item2">
-                    <block2 :block="block9"></block2>
-                    <block2 :block="block10"></block2>
-                    <block2 :block="block11"></block2>
-                    <block2 :block="block12"></block2>
-                </div> -->
             </div>
         </div>
         <div class="bottom">
@@ -144,10 +134,11 @@ export default {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-end;
+                margin-top: 2rem;
                 .item1{
                     display: flex;
                     width: 100%;
-                    margin-top: 10px;
+                    margin-top: .4rem;
                     justify-content: space-between;
                 }
                 .item2{

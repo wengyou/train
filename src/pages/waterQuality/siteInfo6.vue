@@ -48,33 +48,11 @@
         <Title :title="title2" />
         <div class="wrapper0">
             <div>
-                <div class="flex2 wrap">
-                    <p>是否属于省级18条河流水质水量月报上报水功能区:</p>
-                        <el-select style="width: 200px" size="mini" v-model="value" placeholder="是">
+                <div class="flex2 wrap" v-for="(item, index) in form5" :key="index">
+                    <p>{{item.title}}:</p>
+                        <el-select size="mini" v-model="value" placeholder="是">
                         <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value">
-                        </el-option>
-                    </el-select>
-                </div>
-                <div class="flex2 wrap">
-                    <p>是否属于省级18条河流水质水量月报上报水功能区:</p>
-                    <el-select style="width: 200px" size="mini" v-model="value" placeholder="是">
-                        <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value">
-                        </el-option>
-                    </el-select>
-                </div>
-                <div class="flex2 wrap">
-                    <p>是否属于省级18条河流水质水量月报上报水功能区:</p>
-                        <el-select style="width: 200px" size="mini" v-model="value" placeholder="是">
-                        <el-option
-                            v-for="item in options"
+                            v-for="item in item.options"
                             :key="item.value"
                             :label="item.label"
                             :value="item.value">
@@ -82,23 +60,12 @@
                     </el-select>
                 </div>
             </div>
-             <div>
-                <div class="flex2 wrap">
-                    <p>是否属于省级18条河流水质水量月报上报水功能区:</p>
-                        <el-select style="width: 200px" size="mini" v-model="value" placeholder="是">
+            <div>
+                <div class="flex2 wrap" v-for="(item, index) in form6" :key="index">
+                    <p>{{item.title}}:</p>
+                        <el-select size="mini" v-model="value" placeholder="是">
                         <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value">
-                        </el-option>
-                    </el-select>
-                </div>
-                <div class="flex2 wrap">
-                    <p>是否属于省级18条河流水质水量月报上报水功能区:</p>
-                    <el-select style="width: 200px" size="mini" v-model="value" placeholder="是">
-                        <el-option
-                            v-for="item in options"
+                            v-for="item in item.options"
                             :key="item.value"
                             :label="item.label"
                             :value="item.value">
@@ -118,8 +85,8 @@
             </el-input>
         </div>
         <div class="btn_wrapper">
-            <el-button size="mini" type="primary">保存</el-button>
-            <el-button size="mini">取消</el-button>
+            <el-button size="mini" type="primary" @click="toBack">保存</el-button>
+            <el-button size="mini" @click="toBack">取消</el-button>
         </div>
     </div>
 </template>
@@ -191,26 +158,54 @@ export default {
             },],
             form4: ['市级河湖长','市级河湖长联系部门','市级河湖长职务','测站序号'],
             form5: [{
+                title: '水位项目',
+                con: '河道水位',
+                options: [{
+                    value: '选项1',
+                    label: '河道水位',
+                }]
+            },{
                 title: '是否关联水功能区',
-                con: '是'
+                con: '是',
+                options: [{
+                    value: '选项1',
+                    label: '是',
+                },{
+                    value: '选项2',
+                    label: '否',
+                }]
+            },{
+                title: '是否属于省级18条河流水质监测站',
+                con: '是',
+                options: [{
+                    value: '选项1',
+                    label: '是',
+                },{
+                    value: '选项2',
+                    label: '否',
+                }]
             }],
 
             form6: [{
-                title: '是否关联河道断面',
-                con: '是'
-            },{
-                title: '是否属于省级18条河流水质监测站',
-                con: '是'
-            },{
-                title: '关联水功能区',
-                con: '请选择'
+                title: '流量项目',
+                con: '河道流量',
+                options: [{
+                    value: '选项1',
+                    label: '河道流量',
+                }]
             },{
                 title: '关联河道断面',
-                con: '请选择'
-            },{
-                title: '考核市州(17)个',
-                con: '请选择'
+                con: '请选择',
+                options: [{
+                    value: '选项1',
+                    label: '请选择',
+                }]
             }]
+        }
+    },
+    methods: {
+        toBack() {
+            this.$router.go(-1)
         }
     }
 }
@@ -219,7 +214,7 @@ export default {
 <style lang="scss" scoped>
     .siteInfo2_container{
         background: #ffffff;
-        width: 70vw;
+        width: 60vw;
         min-height: 100vh;
         margin: 0 auto;
         .wrapper{

@@ -1,0 +1,205 @@
+<template>
+  <el-table
+    :data="tableData"
+    style="width: 100%">
+    <el-table-column
+      prop="num"
+      width="70"
+      label="序号">
+    </el-table-column>
+    <el-table-column
+      prop="title1"
+      width="80"
+      label="监测断面名称">
+    </el-table-column>
+    <el-table-column
+      prop="title2"
+      label="监测断面地址">
+    </el-table-column>
+    <el-table-column
+      prop="title3"
+      width="80"
+      label="考核目标">
+    </el-table-column>
+    <el-table-column label="1-7月份累计均值水质评价">
+      <el-table-column
+        prop="title4"
+        width="80"
+        label="监测结果">
+      </el-table-column>
+      <el-table-column 
+        prop="title5"
+        width="80"
+        label="达标情况">
+      </el-table-column>
+      <el-table-column 
+        prop="title6"
+        width="80"
+        label="超标项目">
+      </el-table-column>
+    </el-table-column>
+    <el-table-column label="7月当月水质评价">
+      <el-table-column
+        prop="title7"
+        width="80"
+        label="监测结果">
+      </el-table-column>
+      <el-table-column 
+        prop="title8"
+        label="与去年同期相比">
+      </el-table-column>
+      <el-table-column 
+        prop="title9"
+        label="与上月相比">
+      </el-table-column>
+    </el-table-column>
+    <el-table-column
+      prop="title10"
+      label="市级河湖长">
+    </el-table-column>
+    <el-table-column
+      prop="title11"
+      label="市级河湖长联系部门">
+    </el-table-column>
+  </el-table>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        tableData: [{
+            num: 1,
+            title1:'黄蜡石',
+            title2:'长江恩施-宜昌市届',
+            title3:'Ⅲ',
+            title4:'Ⅱ',
+            title5:'达标',
+            title6:'无',
+            title7:'Ⅱ',
+            title8:'改卷（Ⅲ）',
+            title9:'持平（Ⅱ）',
+            title10:'柯俊（恩施州委书记、州人大常委会主任）',
+            title11:'恩施州水利和湖泊局、恩施州交通运输局',
+        }, {
+            num: 2,
+            title1:'云池（白洋）',
+            title2:'长江宜昌虎亭段',
+            title3:'Ⅲ',
+            title4:'Ⅱ',
+            title5:'达标',
+            title6:'无',
+            title7:'Ⅱ',
+            title8:'改卷（Ⅱ）',
+            title9:'持平（Ⅱ）',
+            title10:'张家胜（宜昌市委书记、市长）',
+            title11:'宜昌市发改委',
+        },{
+            num: 3,
+            title1:'砖瓦厂',
+            title2:'长江恩施-荆州市届',
+            title3:'Ⅲ',
+            title4:'Ⅱ',
+            title5:'达标',
+            title6:'无',
+            title7:'Ⅱ',
+            title8:'改卷（Ⅲ）',
+            title9:'持平（Ⅱ）',
+            title10:'柯俊（恩施州委书记、州人大常委会主任）',
+            title11:'恩施州水利和湖泊局、恩施州交通运输局',
+        },{
+            num: 4,
+            title1:'观音寺',
+            title2:'长江荆州段',
+            title3:'Ⅲ',
+            title4:'Ⅱ',
+            title5:'达标',
+            title6:'无',
+            title7:'Ⅱ',
+            title8:'改卷（Ⅲ）',
+            title9:'持平（Ⅱ）',
+            title10:'柯俊（恩施州委书记、州人大常委会主任）',
+            title11:'恩施州水利和湖泊局、恩施州交通运输局',
+        },{
+            num: 5,
+            title1:'柳口',
+            title2:'长江荆州监利段',
+            title3:'Ⅲ',
+            title4:'Ⅱ',
+            title5:'达标',
+            title6:'无',
+            title7:'Ⅱ',
+            title8:'改卷（Ⅲ）',
+            title9:'持平（Ⅱ）',
+            title10:'柯俊（恩施州委书记、州人大常委会主任）',
+            title11:'恩施州水利和湖泊局、恩施州交通运输局',
+        },{
+            num: 6,
+            title1:'调关',
+            title2:'长江荆州石首段',
+            title3:'Ⅲ',
+            title4:'Ⅱ',
+            title5:'达标',
+            title6:'无',
+            title7:'Ⅱ',
+            title8:'改卷（Ⅲ）',
+            title9:'持平（Ⅱ）',
+            title10:'柯俊（恩施州委书记、州人大常委会主任）',
+            title11:'恩施州水利和湖泊局、恩施州交通运输局',
+        },{
+            num: 7,
+            title1:'荆江口',
+            title2:'长江鄂-湘省届',
+            title3:'Ⅲ',
+            title4:'Ⅱ',
+            title5:'达标',
+            title6:'无',
+            title7:'Ⅱ',
+            title8:'改卷（Ⅲ）',
+            title9:'持平（Ⅱ）',
+            title10:'柯俊（恩施州委书记、州人大常委会主任）',
+            title11:'恩施州水利和湖泊局、恩施州交通运输局',
+        },{
+            num: 8,
+            title1:'杨泗港',
+            title2:'长江武汉段',
+            title3:'Ⅲ',
+            title4:'Ⅱ',
+            title5:'达标',
+            title6:'无',
+            title7:'Ⅱ',
+            title8:'改卷（Ⅲ）',
+            title9:'持平（Ⅱ）',
+            title10:'柯俊（恩施州委书记、州人大常委会主任）',
+            title11:'恩施州水利和湖泊局、恩施州交通运输局',
+        },{
+            num: 1,
+            title1:'白浒山',
+            title2:'长江武汉-鄂州市届',
+            title3:'Ⅲ',
+            title4:'Ⅱ',
+            title5:'达标',
+            title6:'无',
+            title7:'Ⅱ',
+            title8:'改卷（Ⅲ）',
+            title9:'持平（Ⅱ）',
+            title10:'王忠林（省委常委、市委书记）',
+            title11:'武汉新港管理委员会、武汉市水务局',
+        },{
+            num: 10,
+            title1:'燕虮',
+            title2:'长江鄂州段',
+            title3:'Ⅲ',
+            title4:'Ⅱ',
+            title5:'达标',
+            title6:'无',
+            title7:'Ⅱ',
+            title8:'改卷（Ⅲ）',
+            title9:'持平（Ⅱ）',
+            title10:'待调整',
+            title11:'鄂州市政府办公室',
+        },]
+      }
+    }
+  }
+</script>

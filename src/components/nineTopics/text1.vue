@@ -13,7 +13,7 @@ export default {
 
 <style lang="scss" scoped>
     .text1_container{
-        width: 160px;
+        min-width: 160px;
         height: 30px;
         display: flex;
         align-items: center;
@@ -28,7 +28,7 @@ export default {
         span{
             text-indent: 1em;
             color: #ffffff;
-            font-size: 10px;
+            // font-size: 10px;
         }
     }
 </style>

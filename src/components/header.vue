@@ -7,12 +7,12 @@
         </div>
         <ul class="flex2 tab">
             <li 
-                @mouseover="hoverIndex = index" 
+                @mouseover="hoverIndex = index; swichTab(index);" 
                 v-for="(item,index) in tab" 
                 :key="item.key" 
                 class="item" 
                 :class=" arrActive.includes(index) ? 'active' : '' " 
-                @click="swichTab(index);arrActive[0] === 2 ? toBook() : ''; arrActive[0] === 3 ? toPublicBook() : ''"
+                @click="swichTab(index);arrActive[0] === 2 ? toBook() : ''; arrActive[0] === 3 ? toPublicBook() : ''; arrActive[0] === 6 ? toInfoHome() : '';arrActive[0] === 9 ? toScreen() : ''"
                 >
                     <p>{{item.name}}</p>
             </li>
@@ -38,7 +38,7 @@
             <!-- 水质水量 -->
             <div v-if="hoverIndex === 4" class="popover4">
                 <div class="wrapper">
-                    <p>水质水量月报</p>
+                    <p @click="toWater4">水质水量月报</p>
                     <ul>
                         <li @click="toWater4" >水质水量月报管理</li>
                         <!-- <li @click="toWater1">编辑水质水量月报</li> -->
@@ -47,21 +47,21 @@
                     </ul>
                 </div>
                 <div class="wrapper">
-                    <p>站点信息配置</p>
+                    <p @click="toSiteInfo1">站点信息配置</p>
                     <ul class="itemWarp">
-                        <li @click="toCure">水功能区基本信息</li>
-                        <li @click="toGoverment">地表水质监测站点信息</li>
-                        <li @click="toWaterShore">河道、湖泊水文站基本信息</li>
-                        <li @click="toRepair">库（湖）容曲线表</li>
-                        <li @click="toMonitor">河湖执法监控</li>
+                        <li @click="toSiteInfo1">水功能区基本信息</li>
+                        <li @click="toSiteInfo1">地表水质监测站点信息</li>
+                        <li @click="toSiteInfo1">河道、湖泊水文站基本信息</li>
+                        <li @click="toSiteInfo1">库（湖）容曲线表</li>
+                        <li @click="toSiteInfo1">河湖执法监控</li>
                     </ul>
                 </div>
                 <div class="wrapper">
                     <p></p>
                     <ul class="itemWarp">
-                        <li @click="toCure">地下水质监测站点信息</li>
-                        <li @click="toGoverment">河道监测断面基础信息</li>
-                        <li @click="toWaterShore">水质水量月报发布/查看</li>
+                        <li >地下水质监测站点信息</li>
+                        <li >河道监测断面基础信息</li>
+                        <li >水质水量月报发布/查看</li>
                     </ul>
                 </div>
             </div>
@@ -81,6 +81,52 @@
                     <li @click="toMonitor">河湖执法监控</li>
                 </ul>
             </div>
+
+            <!-- 考核管理 -->
+             <div v-if="hoverIndex === 10" class="popover4 popover10">
+                 <div class="wrapper">
+                    <p>河长评分分析</p>
+                    <ul>
+                        <li @click="toCheck1" >系统评分(河长)</li>
+                        <li @click="toCheck2">系统评分统计分析(联系单位)</li>
+                        <li @click="toCheck3">系统评分统计分析(河长办)</li>
+                        <li @click="toCheck4">综合评分统计分析(河长)</li>
+                        <li @click="toCheck5">综合评分统计分析(河长办)</li>
+                        <li @click="toCheck6">综合(联系单位)</li>
+                    </ul>
+                </div>
+                <div class="wrapper">
+                    <p>河长办评分分析</p>
+                    <ul class="itemWarp">
+                        <li @click="toCheck7">系统自动评分(考核+被考核)</li>
+                        <li @click="toCheck8">综合评分(考核+被考核)</li>
+                    </ul>
+                </div>
+                <div class="wrapper">
+                    <p @click="toCheck9">考核方案管理</p>
+                    <ul class="itemWarp">
+                        <li @click="toCheck10">新增考核方案</li>
+                        <li @click="toCheck11">编辑考核方案</li>
+                    </ul>
+                </div>
+                <div class="wrapper">
+                    <p @click="toCheck12">考核自评（河长办自评）</p>
+                    <ul class="itemWarp">
+                        <li @click="toCheck13">自评页面</li>
+                    </ul>
+                </div>
+                <div class="wrapper">
+                    <p @click="toCheck14">考核自评（河长自评）</p>
+                    <ul class="itemWarp">
+                        <li @click="toCheck15">自评页面</li>
+                        <li  @click="toCheck16">上级评分(河长)</li>
+                        <li @click="toCheck16">上级评分(河长办)</li>
+                        <li @click="toCheck17">考核查询(河湖长)</li>
+                        <li @click="toCheck18">考核查询(河湖办)</li>
+                        <li @click="toCheck19">考核等级配置</li>
+                    </ul>
+                </div>
+            </div>
         </ul>
         <div class="flex2 right">
             <img src="../images/user.png" alt="">
@@ -96,8 +142,74 @@ export default {
         toRoute() {
             this.$router.replace('/route')
         },
+        toCheck1() {
+            this.$router.push({path:'/check/check1'})
+        },
+        toCheck2() {
+            this.$router.push({path:'/check/check2'})
+        },
+        toCheck3() {
+            this.$router.push({path:'/check/check3'})
+        },
+        toCheck4() {
+            this.$router.push({path:'/check/check4'})
+        },
+        toCheck5() {
+            this.$router.push({path:'/check/check5'})
+        },
+        toCheck6() {
+            this.$router.push({path:'/check/check6'})
+        },
+        toCheck7() {
+            this.$router.push({path:'/check/check7'})
+        },
+        toCheck8() {
+            this.$router.push({path:'/check/check8'})
+        },
+        toCheck9() {
+            this.$router.push({path:'/check/check9'})
+        },
+        toCheck10() {
+            this.$router.push({path:'/check/check10'})
+        },
+        toCheck11() {
+            this.$router.push({path:'/check/check11'})
+        },
+        toCheck12() {
+            this.$router.push({path:'/check/check12'})
+        },
+        toCheck13() {
+            this.$router.push({path:'/check/check13'})
+        },
+        toCheck14() {
+            this.$router.push({path:'/check/check14'})
+        },
+        toCheck15() {
+            this.$router.push({path:'/check/check15'})
+        },
+        toCheck16() {
+            this.$router.push({path:'/check/check16'})
+        },
+        toCheck17() {
+            this.$router.push({path:'/check/check17'})
+        },
+        toCheck18() {
+            this.$router.push({path:'/check/check18'})
+        },
+        toCheck19() {
+            this.$router.push({path:'/check/check19'})
+        },
+        toScreen() {
+            this.$router.push({path:'/screen'})
+        },
+        toInfoHome() {
+            this.$router.push({path:'/information/home'})
+        },
         toWater4() {
             this.$router.push({path: '/waterQuality/water4'})
+        },
+        toSiteInfo1() {
+            this.$router.push({path: '/waterQuality/siteInfo1'})
         },
         handleSelect(key, keyPath) {
             console.log(key, keyPath);
@@ -250,6 +362,9 @@ export default {
             },{
                 index: 10,
                 name: '大屏可视化'
+            },{
+                index: 11,
+                name: '考核管理'
             },]
         }
     }
@@ -258,48 +373,50 @@ export default {
 
 <style lang="scss" scoped>
     .header_container{
-        width: 100%;
-        height: 50px;
+        width: 100vw;
+        height: 1rem;
         background-image: linear-gradient(to right, #0341b5, #0e2357);
         display: flex;
         justify-content: space-between;
+        align-items: center;
         color: #ffffff;
         .left{
             margin-left: 1vw;
         }
         .right{
             justify-content: space-between;
-            width: 6.8rem;
+            width: 2rem;
             margin-right: 1vw;
             font-size: 0.875rem;
         }
         .tab{
             width: 66vw;
             justify-content: space-between;
+            // font-size: 0.1rem;
             .item{
                 width: 7vw;
-                height: 100%;
-                margin: 10px;
+                // height: 100%;
+                // margin: 0.4rem;
                 display: inline-block;
                 transform: skewX(-45deg);
                 cursor:pointer
             }
             .item>p{
                 color: white;
-                font-size: 0.7rem;
+                font-size: 0.3rem;
                 transform: skewX(45deg);
-                line-height: 50px;
+                line-height: 1rem;
                 text-align: center;
             }
             .active{
-                box-shadow: inset 0 0 20px #0b7bc4;
+                box-shadow: inset 0 0 1rem #0b7bc4;
             }
             .popover{
-                width: 150px;
-                height: 200px;
+                width: 2.6rem;
+                height: 4rem;
                 background: #2158e4;
                 position: fixed;
-                top:50px;
+                top:1rem;
                 z-index: 100;
                 .itemWarp{
                     width: 100%;
@@ -313,43 +430,46 @@ export default {
                     li{
                         cursor:pointer
                     }
+                    p{
+                        cursor:pointer
+                    }
                 }
             }
             .popover2{
                 left: 26vw;
-                height: 6.25rem;
+                height: 2rem;
             }
             .popover5{
-                height: 280px !important;
-                left: 52vw;
-                height: 12rem;
+                height: 6rem !important;
+                left: 50vw;
+                // height: 12rem;
             }
             .popover4{
                 width: 40vw;
                 display: flex;
-                height: 280px !important;
+                height: 5rem !important;
                 left: 46vw;
-                height: 12rem;
                 position: fixed;
-                top: 50px;
+                top: 1rem;
                 background: #2158e4;
                 z-index: 100;
                 justify-content: space-between;
                 .wrapper{
                     width: 33%;
                     height: 100%;
-                    font-size: 12px;
+                    font-size: 0.8rem;
                     display: flex;
                     flex-direction: column;
                     p{
-                        font-size: 16px;
+                        // font-size: 16px;
                         text-align: center;
                         width: 90%;
                         height: 40px;
                         border-bottom: 1px solid #dddddd;
                         margin: 0 auto;
-                        line-height: 40px;
+                        line-height: 0.8rem;
                         // line-height: 16px;
+                        cursor: pointer;
                     }
                     ul{
                         width: 90%;
@@ -358,10 +478,17 @@ export default {
                         display: flex;
                         flex-direction: column;
                         li{
-                            margin-top: 4vh;
+                            margin-top: 2vh;
+                            cursor: pointer;
                         }
                     }
                 }
+            }
+            .popover10{
+                width: 19rem;
+                height: 6rem !important;
+                left: 40vw;
+                // height: 12rem;
             }
         }
         // .wrapper{

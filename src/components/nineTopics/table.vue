@@ -3,7 +3,7 @@
         <el-table
             :data="tableData"
             size="small"
-            style="width: 40vw;"
+            style="width: 35vw;"
             :row-class-name="tableRowClassName"
             border>
             <el-table-column

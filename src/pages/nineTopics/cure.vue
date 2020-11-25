@@ -102,13 +102,13 @@ export default {
 
 <style lang="scss" scoped>
     .goverment_container{
-        max-width: 100vw;
-        min-height: 100vh;
+        width: 100vw;
+        height: 100vh;
         background: url('../../images/nineBg.jpg') no-repeat;
         background-size: 100% 100%;
         .btn_wrapper{
             display: flex;
-            width: 16vw;
+            width: 5rem;
             justify-content: space-between;
             margin: 10px 0 0 10px;
         }
@@ -116,30 +116,30 @@ export default {
             display: flex;
             justify-content: space-between;
             .wrapper{
-                width: 50vw;
+                width: 35vw;
                 // background: red;
                 display: flex;
                 flex-direction: column;
-                margin-top: 20px;
-                margin-right: 20px;
+                // margin-top: .25rem;
+                margin-right: 1.25rem;
                 justify-content: space-between;
                 .item1{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    margin-top: 10px;
+                    margin-top: 0.6rem;
                 }
                 .item2{
                     display: flex;
                     margin-top: 4vh;
                     img{
-                        width: 16vw;
-                        height: 16vh;
+                        width: 3.5rem;
+                        height: 2.5rem;
                     }
                 }
                 p{
                     color: #ffffff;
-                    font-size: 12px;
+                    font-size: 0.3rem;
                     font-weight: bold;
                 }
             }

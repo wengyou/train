@@ -16,7 +16,7 @@
               <div class="item1">
                   <Text1 :text="text1" />
               </div>
-              <div class="item1">
+              <div class="item2">
                   <Text2 :text="text3" />
               </div>
               <div class="item1">
@@ -80,12 +80,10 @@ export default {
             display: flex;
             justify-content: space-between;
             .wrapper{
-                // background: red;
-                width: 38vw;
-                // min-height: 80vh;
+                width: 35vw;
                 display: flex;
                 flex-direction: column;
-                margin-top: 20px;
+                // margin-top: 1.25rem;
                 margin-right: 4vw;
                 justify-content: space-between;
                 .item1{
@@ -93,6 +91,9 @@ export default {
                     justify-content: space-between;
                     align-items: center;
                     margin-top: 2vh;
+                }
+                .item2{
+                    margin: 0 auto;
                 }
             }
         }

@@ -13,11 +13,11 @@
                     <block2 :block="block2"></block2>
                     <block2 :block="block3"></block2>
                 </div>
-                <Table2 style="margin-top:10px" />
-                <div>
+                <Table2 style="margin-top:.6rem" />
+                <div style="margin-top:.4rem">
                     <Text1 :text="text2"></Text1>
                 </div>
-                <Table3 style="margin-bottom: 40px" />
+                <Table3 style="margin-bottom: 40px;margin-top:.4rem" />
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@ export default {
     data() {
         return {
             text1: "重要指标",
-            text2: "如何排污口",
+            text2: "入河排污口",
             block1: {
                 num: 30,
                 text: "省级河流（条）"
@@ -79,14 +79,14 @@ export default {
                 flex-direction: column;
                 .item1{
                     display: flex;
-                    margin-top: 10px;
+                    margin-top: .6rem;
                     justify-content: space-between;
                 }
                 .item2{
                     display: flex;
                     width: 100%;
                     justify-content: space-between;
-                    margin-top: 10px;
+                    margin-top: .6rem;
                 }
             }
         }

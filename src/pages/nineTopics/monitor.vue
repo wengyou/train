@@ -8,7 +8,7 @@
                     <Text1 :text="text" />
                     <year-select></year-select>
                 </div>
-                <Table style="margin-right: 30px" />
+                <Table style="margin-top: .6rem" />
             </div>
         </div>
     </div>
@@ -47,16 +47,18 @@ export default {
             display: flex;
             justify-content: space-between;
             .wrapper{
-                width: 500px;
-                height: 300px;
+                width: 40vw;
+                height: 56vh;
                 display: flex;
                 flex-direction: column;
                 margin: auto 0;
+                // background: red;
                 .top{
+                    width: 88%;
                     display: flex;
                     justify-content: space-between;
-                    margin-right: 30px;
-                    margin-bottom: 20px;
+                    // margin-right: 30px;
+                    // margin-bottom: 20px;
                 }
             }
         }

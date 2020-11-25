@@ -136,6 +136,15 @@ export default [{
         path: '/waterQuality/water11',
         component: r => require.ensure([], () => r(require('../pages/waterQuality/water11.vue')), 'water11')
     }, {
+        path: '/waterQuality/water12',
+        component: r => require.ensure([], () => r(require('../pages/waterQuality/water12.vue')), 'water12')
+    },{
+        path: '/waterQuality/water13',
+        component: r => require.ensure([], () => r(require('../pages/waterQuality/water13.vue')), 'water13')
+    },{
+        path: '/waterQuality/water14',
+        component: r => require.ensure([], () => r(require('../pages/waterQuality/water14.vue')), 'water14')
+    }, {
         path: '/waterQuality/siteInfo1',
         component: r => require.ensure([], () => r(require('../pages/waterQuality/siteInfo1.vue')), 'siteInfo1')
     }, {
@@ -153,5 +162,68 @@ export default [{
     }, {
         path: '/waterQuality/siteInfo6',
         component: r => require.ensure([], () => r(require('../pages/waterQuality/siteInfo6.vue')), 'siteInfo6')
+    }, {
+        path: '/information/home',
+        component: r => require.ensure([], () => r(require('../pages/information/home.vue')), 'home')
+    }, {
+        path: '/screen',
+        component: r => require.ensure([], () => r(require('../pages/screen/screen.vue')), 'screen')
+    }, {
+        path: '/check/check1',
+        component: r => require.ensure([], () => r(require('../pages/check/check1.vue')), 'check1')
+    }, {
+        path: '/check/check2',
+        component: r => require.ensure([], () => r(require('../pages/check/check2.vue')), 'check2')
+    }, {
+        path: '/check/check3',
+        component: r => require.ensure([], () => r(require('../pages/check/check3.vue')), 'check3')
+    }, {
+        path: '/check/check4',
+        component: r => require.ensure([], () => r(require('../pages/check/check4.vue')), 'check4')
+    }, {
+        path: '/check/check5',
+        component: r => require.ensure([], () => r(require('../pages/check/check5.vue')), 'check5')
+    }, {
+        path: '/check/check6',
+        component: r => require.ensure([], () => r(require('../pages/check/check6.vue')), 'check6')
+    }, {
+        path: '/check/check7',
+        component: r => require.ensure([], () => r(require('../pages/check/check7.vue')), 'check7')
+    }, {
+        path: '/check/check8',
+        component: r => require.ensure([], () => r(require('../pages/check/check8.vue')), 'check8')
+    }, {
+        path: '/check/check9',
+        component: r => require.ensure([], () => r(require('../pages/check/check9.vue')), 'check9')
+    }, {
+        path: '/check/check10',
+        component: r => require.ensure([], () => r(require('../pages/check/check10.vue')), 'check10')
+    }, {
+        path: '/check/check11',
+        component: r => require.ensure([], () => r(require('../pages/check/check11.vue')), 'check11')
+    }, {
+        path: '/check/check12',
+        component: r => require.ensure([], () => r(require('../pages/check/check12.vue')), 'check12')
+    }, {
+        path: '/check/check13',
+        component: r => require.ensure([], () => r(require('../pages/check/check13.vue')), 'check13')
+    }, {
+        path: '/check/check14',
+        component: r => require.ensure([], () => r(require('../pages/check/check14.vue')), 'check14')
+    },{
+        path: '/check/check15',
+        component: r => require.ensure([], () => r(require('../pages/check/check15.vue')), 'check15')
+    },{
+        path: '/check/check16',
+        component: r => require.ensure([], () => r(require('../pages/check/check16.vue')), 'check16')
+    },{
+        path: '/check/check17',
+        component: r => require.ensure([], () => r(require('../pages/check/check17.vue')), 'check17')
+    },{
+        path: '/check/check18',
+        component: r => require.ensure([], () => r(require('../pages/check/check18.vue')), 'check18')
+    },{
+        path: '/check/check19',
+        component: r => require.ensure([], () => r(require('../pages/check/check19.vue')), 'check19')
     }]
 }]

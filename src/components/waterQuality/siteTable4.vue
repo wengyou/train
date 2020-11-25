@@ -32,12 +32,12 @@ export default {
         return {
             tableData: [{
                 num: 1,
-                title1:'',
-                title2:'',
+                title1:'洪湖',
+                title2:'洪湖水文站',
             },{
                 num: 2,
-                title1:'',
-                title2:'',
+                title1:'长湖',
+                title2:'长湖水文站',
             },]
         }
     }

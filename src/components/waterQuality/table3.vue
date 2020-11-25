@@ -23,11 +23,11 @@
         label="1">
       </el-table-column>
       <el-table-column
-        prop="mun2"
+        prop="num2"
         label="2">
       </el-table-column>
       <el-table-column
-        prop="mun3"
+        prop="num3"
         label="3">
       </el-table-column>
       <el-table-column
@@ -35,11 +35,11 @@
         label="4">
       </el-table-column>
       <el-table-column
-        prop="mun5"
+        prop="num5"
         label="5">
       </el-table-column>
       <el-table-column
-        prop="mun6"
+        prop="num6"
         label="6">
       </el-table-column>
       <el-table-column
@@ -47,11 +47,11 @@
         label="7">
       </el-table-column>
       <el-table-column
-        prop="mun8"
+        prop="num8"
         label="8">
       </el-table-column>
       <el-table-column
-        prop="mun9"
+        prop="num9"
         label="9">
       </el-table-column>
       <el-table-column
@@ -59,11 +59,11 @@
         label="10">
       </el-table-column>
       <el-table-column
-        prop="mun11"
+        prop="num11"
         label="11">
       </el-table-column>
       <el-table-column
-        prop="mun12"
+        prop="num12"
         label="12">
       </el-table-column>
     </el-table-column>
@@ -76,53 +76,165 @@ export default {
         return {
             tableData: [{
                 num: 1,
-                name1: '',
-                name2: '',
-                num1: '',
-                num2: '',
-                num3: '',
-                num4: '',
-                num5: '',
-                num6: '',
-                num7: '',
-                num8: '',
-                num9: '',
-                num10: '',
-                num11: '',
-                num12: '',
+                name1: '河流',
+                name2: '长江',
+                num1: '29.8',
+                num2: '45.1',
+                num3: '76',
+                num4: '117.6',
+                num5: '152.5',
+                num6: '181.9',
+                num7: '192.9',
+                num8: '147.3',
+                num9: '99.5',
+                num10: '81.2',
+                num11: '52.4',
+                num12: '25.5',
+            },{
+                num: 1,
+                name1: '河流',
+                name2: '长江',
+                num1: '29.8',
+                num2: '45.1',
+                num3: '76',
+                num4: '117.6',
+                num5: '152.5',
+                num6: '181.9',
+                num7: '192.9',
+                num8: '147.3',
+                num9: '99.5',
+                num10: '81.2',
+                num11: '52.4',
+                num12: '25.5',
             },{
                 num: 2,
-                name1: '',
-                name2: '',
-                num1: '',
-                num2: '',
-                num3: '',
-                num4: '',
-                num5: '',
-                num6: '',
-                num7: '',
-                num8: '',
-                num9: '',
-                num10: '',
-                num11: '',
-                num12: '',
+                name1: '河流',
+                name2: '汉江',
+                num1: '29.8',
+                num2: '45.1',
+                num3: '76',
+                num4: '117.6',
+                num5: '152.5',
+                num6: '181.9',
+                num7: '192.9',
+                num8: '147.3',
+                num9: '99.5',
+                num10: '81.2',
+                num11: '52.4',
+                num12: '25.5',
             },{
                 num: 3,
-                name1: '',
-                name2: '',
-                num1: '',
-                num2: '',
-                num3: '',
-                num4: '',
-                num5: '',
-                num6: '',
-                num7: '',
-                num8: '',
-                num9: '',
-                num10: '',
-                num11: '',
-                num12: '',
-            }]
+                name1: '东荆河',
+                name2: '长江',
+                num1: '29.8',
+                num2: '45.1',
+                num3: '76',
+                num4: '117.6',
+                num5: '152.5',
+                num6: '181.9',
+                num7: '192.9',
+                num8: '147.3',
+                num9: '99.5',
+                num10: '81.2',
+                num11: '52.4',
+                num12: '25.5',
+            },{
+                num: 4,
+                name1: '河流',
+                name2: '汉北河',
+                num1: '29.8',
+                num2: '45.1',
+                num3: '76',
+                num4: '117.6',
+                num5: '152.5',
+                num6: '181.9',
+                num7: '192.9',
+                num8: '147.3',
+                num9: '99.5',
+                num10: '81.2',
+                num11: '52.4',
+                num12: '25.5',
+            },{
+                num: 5,
+                name1: '河流',
+                name2: '清江',
+                num1: '29.8',
+                num2: '45.1',
+                num3: '76',
+                num4: '117.6',
+                num5: '152.5',
+                num6: '181.9',
+                num7: '192.9',
+                num8: '147.3',
+                num9: '99.5',
+                num10: '81.2',
+                num11: '52.4',
+                num12: '25.5',
+            },{
+                num: 6,
+                name1: '河流',
+                name2: '富水',
+                num1: '29.8',
+                num2: '45.1',
+                num3: '76',
+                num4: '117.6',
+                num5: '152.5',
+                num6: '181.9',
+                num7: '192.9',
+                num8: '147.3',
+                num9: '99.5',
+                num10: '81.2',
+                num11: '52.4',
+                num12: '25.5',
+            },{
+                num: 7,
+                name1: '河流',
+                name2: '南河',
+                num1: '29.8',
+                num2: '45.1',
+                num3: '76',
+                num4: '117.6',
+                num5: '152.5',
+                num6: '181.9',
+                num7: '192.9',
+                num8: '147.3',
+                num9: '99.5',
+                num10: '81.2',
+                num11: '52.4',
+                num12: '25.5',
+            },{
+                num: 8,
+                name1: '河流',
+                name2: '通顺河',
+                num1: '29.8',
+                num2: '45.1',
+                num3: '76',
+                num4: '117.6',
+                num5: '152.5',
+                num6: '181.9',
+                num7: '192.9',
+                num8: '147.3',
+                num9: '99.5',
+                num10: '81.2',
+                num11: '52.4',
+                num12: '25.5',
+            },{
+                num: 9,
+                name1: '河流',
+                name2: '洪湖',
+                num1: '29.8',
+                num2: '45.1',
+                num3: '76',
+                num4: '117.6',
+                num5: '152.5',
+                num6: '181.9',
+                num7: '192.9',
+                num8: '147.3',
+                num9: '99.5',
+                num10: '81.2',
+                num11: '52.4',
+                num12: '25.5',
+            },]
         }
     }
 }

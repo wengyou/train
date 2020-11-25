@@ -6,31 +6,36 @@
             <div>
                <div>
                     <div class="wrapper">
-                        <div class="con">
+                        <div class="con1">
                             <text1 :text="test1"></text1>
-                            <text2 :text="test4"></text2>
-                            <text2 :text="test5"></text2>
-                            <text1 :text="test2"></text1>
-                            <text1 :text="test3"></text1>
-                            <text2 :text="test6"></text2>
+                            <year-select></year-select>
                         </div>
-                        <div class="con">
-                            <text2 :text="test7"></text2>
-                            <text2 :text="test8"></text2>
-                            <div class="select">
+                        <div class="con2">
+                            <text2 :text="test4"></text2>
+                            <text2 class="toLeft" :text="test5"></text2>
+                        </div>
+                        <div class="con2">
+                            <text2 :text="test6"></text2>
+                            <text2 class="toLeft" :text="test7"></text2>
+                        </div>
+                        <div class="con1">
+                            <text1 :text="test2"></text1>
+                            <div class="flex2">
                                 <year-select></year-select>
                                 <quarter-select style="margin-left: 10px"></quarter-select>
-                            </div>
-                            
-                            <text2 :text="test9"></text2>
+                            </div> 
                         </div>
-                        <div class="con">
-                            <year-select></year-select>
+                        <div class="con2">
+                            <text2 :text="test8"></text2>
+                            <text2 class="toLeft" :text="test9"></text2>
+                        </div>
+                        <div class="con1">
+                            <text1 :text="test3"></text1>
                             <year-select></year-select>
                         </div>
                     </div>
                 </div>
-                <Table style="margin: 20px auto" /> 
+                <Table style="margin-top: .8rem;margin-right: 1rem" /> 
             </div>
         </div>
     </div>
@@ -91,28 +96,40 @@ export default {
 
 <style lang="scss" scoped>
     .responsibility_container{
-        min-width: 100vw;
-        min-height: 100vh;
+        width: 100vw;
+        height: 100vh;
         background: url('../../images/nineBg.jpg') no-repeat;
         background-size: 100% 100%;
         .container{
             display: flex;
+            justify-content: space-between;
+            // background: red;
              .wrapper{
                 //  background: red;
-                 width: 40vw;
+                 width: 35vw;
+                 height: 10rem;
                 display: flex;
-                .con{
-                    width: 14vw;
-                    height: 60vh;
+                flex-direction: column;
+                // margin-left: 3rem;
+                padding-right: 1rem;
+                margin-top: 1rem;
+                justify-content: space-around;
+                .con1{
                     display: flex;
                     // background: red;
-                    flex-direction: column;
                     align-items: center;
                     justify-content: space-between;
                     margin-top: 10px;
                     .select{
                         display: flex;
                     }
+                }
+                .con2{
+                    display: flex;
+                    margin-left: .4rem;
+                }
+                .con3{
+                    display: flex;
                 }
             }
         }

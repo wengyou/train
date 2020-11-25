@@ -7,7 +7,7 @@
             <Select :title="title3" :con="con" />
         </div>
         <div>
-             <el-button size="mini" type="primary">+新增</el-button>
+             <el-button size="mini" type="primary" @click="flag ? toSiteInfo6() : toSiteInfo3()">+新增</el-button>
         </div>
     </div>
 </template>
@@ -20,6 +20,7 @@ export default {
         Search,
         Select,
     },
+    props: ['flag'],
     data() {
         return {
             serchCon: '请输入水功能区编码或名称',
@@ -27,6 +28,14 @@ export default {
             title2: '隶属行业单位',
             title3: '信息管理单位',
             con: '全部'
+        }
+    },
+    methods: {
+        toSiteInfo6() {
+            this.$router.push({path: '/waterQuality/siteInfo6'})
+        },
+        toSiteInfo3() {
+            this.$router.push({path: '/waterQuality/siteInfo3'})
         }
     }
 }

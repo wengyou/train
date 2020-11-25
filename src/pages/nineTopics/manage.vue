@@ -12,31 +12,32 @@
       
       <div class="wrapper" >
          <map-charts></map-charts>
-         <div class="con">
-           <text1 :text="msg1"></text1>
-           <block2 :block="block1"></block2>
-           <text1 :text="msg2"></text1>
-           <block2 :block="block2"></block2>
-           <text1 :text="msg3"></text1>
-           <block2 :block="block3"></block2>
-         </div>
-         <div class="con">
-           <!-- <pie-chart></pie-chart> -->
-             <img src="../../images/nine1.png" alt="">
-             <img src="../../images/nine2.png" alt="">
-             <year-select></year-select>
-             <img src="../../images/nine3.png" alt="">
-         </div>
-         <div class="con">
-           <year-select></year-select>
-           <p>河湖综合保护规划完成进度</p>
-           <year-select></year-select>
-           <p>涉河湖专项规划进度</p>
-           <quarter-select></quarter-select>
-           <p>重点水利工程建设进度</p>
-         </div>
+         <div class="flex2">
+            <div class="con">
+              <text1 :text="msg1"></text1>
+              <block2 :block="block1"></block2>
+              <text1 :text="msg2"></text1>
+              <block2 :block="block2"></block2>
+              <text1 :text="msg3"></text1>
+              <block2 :block="block3"></block2>
+            </div>
+            <div class="con">
+              <!-- <pie-chart></pie-chart> -->
+                <img src="../../images/nine1.png" alt="">
+                <img src="../../images/nine2.png" alt="">
+                <year-select></year-select>
+                <img src="../../images/nine3.png" alt="">
+            </div>
+            <div class="con">
+              <year-select></year-select>
+              <p>河湖综合保护规划完成进度</p>
+              <year-select></year-select>
+              <p>涉河湖专项规划进度</p>
+              <quarter-select></quarter-select>
+              <p>重点水利工程建设进度</p>
+            </div>
+         </div>     
       </div>
-     
     </div>
 </template>
 <script>
@@ -109,24 +110,25 @@ export default {
       background-size: 100% 100%;
       .btn_wrapper{
         display: flex;
-        width: 400px;
+        width: 8rem;
         justify-content: space-between;
-        margin: 10px 0 0 10px;
+        margin: 0.625rem 0 0 0.625rem;
       }
       .wrapper{
         // background: red;
         display: flex;
+        justify-content: space-around;
         .con{
-          width: 15vw;
-          height: 80vh;
+          width: 4rem;
+          height: 10rem;
           display: flex;
+          margin: auto 0;
           // background: red;
           flex-direction: column;
           align-items: center;
           justify-content: space-between;
           p{
             color: #ffffff;
-            font-size: 12px;
           }
         }
       }

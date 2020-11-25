@@ -121,7 +121,7 @@ export default {
 <style lang="scss" scoped>
     .siteInfo3_container{
         background: #ffffff;
-        width: 70vw;
+        width: 60vw;
         min-height: 100vh;
         margin: 0 auto;
         .wrapper{
@@ -152,8 +152,10 @@ export default {
             }
         }
         .btn_wrapper{
+            position: fixed;
+            bottom:0;
             display: flex;
-            width: 100%;
+            width: 60vw;
             height: 50px;
             align-items: center;
             justify-content: center;
